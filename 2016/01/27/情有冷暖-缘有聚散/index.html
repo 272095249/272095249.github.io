@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="iOS,编程," />
+  <meta name="keywords" content="心情,推荐,转载,随笔," />
 
 
 
@@ -57,29 +57,32 @@
 
 
 
-<meta name="description" content="实现出来的效果:
-弹幕类型:支持从右往左滚动, 支持中间 顶部和底部 弹幕.
-弹幕内容:支持表情, 自定义内容文字大小及颜色
-使用方法:1 . 创建CFDanmakuView对象, 进行配置, 并添加到View上
-12345678_danmakuView = [[CFDanmakuView alloc]initWithFrame:rect];_danmakuView.duration = 6.5;">
+<meta name="description" content="情有冷暖，缘有聚散，尘缘如梦，柔情万缕，
+爱有浓淡，心有真假，以爱说爱，一帘幽梦，
+以情暖情，情要用心，以心交心，一世尘缘，
+爱要真心，以爱互爱，爱就有缘，情就有终，
+尘缘如梦，柔情万缕，最幸福的感受，就是有人惦念。最真实的感动，就是有人心疼。语言不在于华丽，而在于入心。感情不在于热烈，而在于真心。情有冷暖，缘有聚散。惺惺相惜才能永远，爱有浓淡。心有真假，心心相印才有温暖，真心的付出。才有真情的收">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS弹幕实现及原理介绍">
-<meta property="og:url" content="http://yoursite.com/2016/01/25/iOS弹幕实现及原理介绍/index.html">
+<meta property="og:title" content="情有冷暖,缘有聚散">
+<meta property="og:url" content="http://yoursite.com/2016/01/27/情有冷暖-缘有聚散/index.html">
 <meta property="og:site_name" content="harry sun">
-<meta property="og:description" content="实现出来的效果:
-弹幕类型:支持从右往左滚动, 支持中间 顶部和底部 弹幕.
-弹幕内容:支持表情, 自定义内容文字大小及颜色
-使用方法:1 . 创建CFDanmakuView对象, 进行配置, 并添加到View上
-12345678_danmakuView = [[CFDanmakuView alloc]initWithFrame:rect];_danmakuView.duration = 6.5;">
-<meta property="og:image" content="http://7xqeui.com1.z0.glb.clouddn.com/%E5%BC%B9%E5%B9%95.gif">
-<meta property="og:updated_time" content="2016-01-25T13:23:00.000Z">
+<meta property="og:description" content="情有冷暖，缘有聚散，尘缘如梦，柔情万缕，
+爱有浓淡，心有真假，以爱说爱，一帘幽梦，
+以情暖情，情要用心，以心交心，一世尘缘，
+爱要真心，以爱互爱，爱就有缘，情就有终，
+尘缘如梦，柔情万缕，最幸福的感受，就是有人惦念。最真实的感动，就是有人心疼。语言不在于华丽，而在于入心。感情不在于热烈，而在于真心。情有冷暖，缘有聚散。惺惺相惜才能永远，爱有浓淡。心有真假，心心相印才有温暖，真心的付出。才有真情的收">
+<meta property="og:image" content="http://7xqeui.com1.z0.glb.clouddn.com/1.png">
+<meta property="og:image" content="http://7xqeui.com1.z0.glb.clouddn.com/2.png">
+<meta property="og:image" content="http://7xqeui.com1.z0.glb.clouddn.com/3.png">
+<meta property="og:image" content="http://7xqeui.com1.z0.glb.clouddn.com/4.png">
+<meta property="og:updated_time" content="2016-01-27T14:22:10.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS弹幕实现及原理介绍">
-<meta name="twitter:description" content="实现出来的效果:
-弹幕类型:支持从右往左滚动, 支持中间 顶部和底部 弹幕.
-弹幕内容:支持表情, 自定义内容文字大小及颜色
-使用方法:1 . 创建CFDanmakuView对象, 进行配置, 并添加到View上
-12345678_danmakuView = [[CFDanmakuView alloc]initWithFrame:rect];_danmakuView.duration = 6.5;">
+<meta name="twitter:title" content="情有冷暖,缘有聚散">
+<meta name="twitter:description" content="情有冷暖，缘有聚散，尘缘如梦，柔情万缕，
+爱有浓淡，心有真假，以爱说爱，一帘幽梦，
+以情暖情，情要用心，以心交心，一世尘缘，
+爱要真心，以爱互爱，爱就有缘，情就有终，
+尘缘如梦，柔情万缕，最幸福的感受，就是有人惦念。最真实的感动，就是有人心疼。语言不在于华丽，而在于入心。感情不在于热烈，而在于真心。情有冷暖，缘有聚散。惺惺相惜才能永远，爱有浓淡。心有真假，心心相印才有温暖，真心的付出。才有真情的收">
 
 
 
@@ -97,7 +100,7 @@
   };
 </script>
 
-  <title> iOS弹幕实现及原理介绍 | harry sun </title>
+  <title> 情有冷暖,缘有聚散 | harry sun </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -247,7 +250,7 @@
             
             
               
-                iOS弹幕实现及原理介绍
+                情有冷暖,缘有聚散
               
             
           </h1>
@@ -259,8 +262,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-01-25T21:15:05+08:00" content="2016-01-25">
-              2016-01-25
+            <time itemprop="dateCreated" datetime="2016-01-27T22:15:27+08:00" content="2016-01-27">
+              2016-01-27
             </time>
           </span>
 
@@ -273,8 +276,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS项目学习/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS项目学习</span>
+                  <a href="/categories/随笔/" itemprop="url" rel="index">
+                    <span itemprop="name">随笔</span>
                   </a>
                 </span>
 
@@ -289,8 +292,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/01/25/iOS弹幕实现及原理介绍/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/25/iOS弹幕实现及原理介绍/" itemprop="commentsCount"></span>
+                <a href="/2016/01/27/情有冷暖-缘有聚散/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/27/情有冷暖-缘有聚散/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -311,15 +314,38 @@
       
 
       
-        <h2 id="u5B9E_u73B0_u51FA_u6765_u7684_u6548_u679C_3A"><a href="#u5B9E_u73B0_u51FA_u6765_u7684_u6548_u679C_3A" class="headerlink" title="实现出来的效果:"></a>实现出来的效果:</h2><p><img src="http://7xqeui.com1.z0.glb.clouddn.com/%E5%BC%B9%E5%B9%95.gif" alt="image"></p>
-<h2 id="u5F39_u5E55_u7C7B_u578B_3A"><a href="#u5F39_u5E55_u7C7B_u578B_3A" class="headerlink" title="弹幕类型:"></a>弹幕类型:</h2><p>支持从右往左滚动, 支持中间 顶部和底部 弹幕.</p>
-<h2 id="u5F39_u5E55_u5185_u5BB9_3A"><a href="#u5F39_u5E55_u5185_u5BB9_3A" class="headerlink" title="弹幕内容:"></a>弹幕内容:</h2><p>支持表情, 自定义内容文字大小及颜色</p>
-<h2 id="u4F7F_u7528_u65B9_u6CD5_3A"><a href="#u4F7F_u7528_u65B9_u6CD5_3A" class="headerlink" title="使用方法:"></a>使用方法:</h2><p>1 . 创建CFDanmakuView对象, 进行配置, 并添加到View上</p>
-<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">_danmakuView = [[CFDanmakuView alloc]initWithFrame:rect]<span class="comment">;</span></span><br><span class="line">_danmakuView.duration = 6.5<span class="comment">;</span></span><br><span class="line">_danmakuView.centerDuration = 2.5<span class="comment">;</span></span><br><span class="line">_danmakuView.lineHeight = 25<span class="comment">;</span></span><br><span class="line">_danmakuView.maxShowLineCount = 15<span class="comment">;</span></span><br><span class="line">_danmakuView.maxCenterLineCount = 5<span class="comment">;</span></span><br><span class="line">_danmakuView.delegate = self<span class="comment">;</span></span><br><span class="line">[self.view addSubview:_danmakuView]<span class="comment">;</span></span><br></pre></td></tr></table></figure>
-<p>2 . 配置弹幕的数据</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">CFDanmaku</span>* danmaku = [[<span class="built_in">CFDanmaku</span> alloc] init];</span><br><span class="line">[danmakus addObject:danmaku];</span><br><span class="line">[_danmakuView prepareDanmakus:danmakus];</span><br><span class="line"><span class="comment">// 对应视频的时间戳</span></span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) <span class="built_in">NSTimeInterval</span> timePoint;</span><br><span class="line"><span class="comment">// 弹幕内容</span></span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>) <span class="built_in">NSAttributedString</span>* contentStr;</span><br><span class="line"><span class="comment">// 弹幕类型(如果不设置 默认情况下只是从右到左滚动)</span></span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) <span class="built_in">CFDanmakuPosition</span> position;</span><br></pre></td></tr></table></figure>
-<p>3 .遵守协议, 并实现代理方法</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取视频播放时间</span></span><br><span class="line">-(<span class="built_in">NSTimeInterval</span>)danmakuViewGetPlayTime:(<span class="built_in">CFDanmakuView</span> *)danmakuView</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">if</span>(_slider<span class="variable">.value</span> == <span class="number">1.0</span>) [_danmakuView stop]</span><br><span class="line">    ;</span><br><span class="line">  <span class="keyword">return</span> _slider<span class="variable">.value</span>*<span class="number">120.0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 是否正在加载视频中</span></span><br><span class="line">-(<span class="built_in">BOOL</span>)danmakuViewIsBuffering:(<span class="built_in">CFDanmakuView</span> *)danmakuView</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p><img src="http://7xqeui.com1.z0.glb.clouddn.com/1.png" alt="image"><br>情有冷暖，缘有聚散，尘缘如梦，柔情万缕，</p>
+<p>爱有浓淡，心有真假，以爱说爱，一帘幽梦，</p>
+<p>以情暖情，情要用心，以心交心，一世尘缘，</p>
+<p>爱要真心，以爱互爱，爱就有缘，情就有终，</p>
+<p>尘缘如梦，柔情万缕，最幸福的感受，就是有人惦念。最真实的感动，就是有人心疼。语言不在于华丽，而在于入心。感情不在于热烈，而在于真心。情有冷暖，缘有聚散。惺惺相惜才能永远，爱有浓淡。心有真假，心心相印才有温暖，真心的付出。才有真情的收获，用心的呵护。才有心灵的相守，一生何求，只要有人知冷知暖足够。许多的爱不用说，用心感受。许多的情不用听，时间证明一切。朋友不论近。懂得才有温暖，轰轰烈烈的，未必是真心。默默无声的，未必是无心，把一切交给时间，总会有答案。悲凉了多少个春秋，山高路远，隔断了几世离愁，凭栏远眺，望不尽的秋水悠悠。尘缘如梦，隐逸了几许尘缘碎梦，一帘幽梦，书不尽的一往情深，叹远古，谁把情字解透，看今朝，一个情字又伤悲了多少痴心人。</p>
+<p>情有冷暖，缘有聚散，惺惺相惜才能永远，</p>
+<p>爱有浓淡，心有真假，心心相印才有温暖，</p>
+<p>真心的付出，才有真情的收获，用心的呵护，才有心灵的相守，许多的爱不用说，用心感受，许多的情不用听，时间证明，路过你的，只是一时痴迷，真爱你的，才会不离不弃，遇见不论早晚，真心才能相伴，朋友不论远近，懂得才有温暖，轰轰烈烈的，未必是真心，默默无声的，未必是无心，平淡中的相守，才最珍贵，简单中的拥有，才最心安，岁月如风，几许寒凉锁清秋；情飞云淡，几度繁花枝头落。空余叹，爱与恨，残红散尽，谁解离别苦，望秋水悠悠，流不尽的几番潮起潮落，叠不完的几多聚散离愁，倾城的相思对谁倾诉？满腹的离殇可有人懂？月冷风清，一池清影孤单的摇曳；岁月如流，数不尽的爱恨情仇，孤雁单飞，挥不去的寂寂只影。</p>
+<p>不是所有的爱都能拥有，彼此都在，就是最真的承诺，</p>
+<p>不是所有的情都能倾诉，彼此都懂，就是最好的感受，</p>
+<p>尘缘如梦，千般缱绻，万缕柔情，转头已成空。岁月无情，一地残红，转瞬已随风，徒留满目悲凉，快乐有人分享，就会加倍，痛苦有人分担，就会减半，无论何种故事，只要有人懂，心与心的对语，感动于无声，魂与魂的聆听，互诉是心声，给予的是心疼，就是以心交心，相通的是心灵，滋润的是生命，生活中，默默的付出，从来不求回报，生命里，静静的陪伴，从来不言不语，欢笑时的围绕，不如落泪时的拥抱，得意时的追捧，不如失意时的依靠，伤心处，一曲离歌，诉不尽几多清泪空流。烟花散处，那一抹暖香还能攥多久，等待中，可知苦了多少守候，衣带渐宽终不悔，能否再等到你的一个巧笑回眸？冷秋的萧瑟中，渐渐清醒，却原来你是我无望的奢求，寒雨中，你是我永远抓不住的温柔。</p>
+<p>真正的在乎，才会走进心里，只有真爱，才有真情，</p>
+<p>确实的沦陷，才会情不自禁，只要珍惜，才有永远，</p>
+<p><img src="http://7xqeui.com1.z0.glb.clouddn.com/2.png" alt="image"></p>
+<p>不惊不扰的爱，未必就是无情无义，轰轰烈烈的来，未必长长久久的守，最深沉的爱，总是默默无声，最暖心的情，总是一路同行，风景错过了，可以再看，感情失去了，不会重来，缘聚缘散间，才知道相守很难，分分合合里，才知道永远很远，悲欢离合，数不清几度寒暑，站在时光的渡口远眺，等待你轻荡一叶兰舟，穿越时光的彼岸来到我的面前，抖落满身的唐风宋雨，抛下隔世的离愁，相依相携，相守白头。迷离的眼眸渐渐模糊，原来这只是我的一个幻觉而已，突然感觉自己是那么的渺小，卑微的就像一粒尘埃，散落在凄凉的角落里，飘落在悲冷的风尘中，再也没有人理会。</p>
+<p>微笑，因一个人而起，一句想你，会倍感幸福，</p>
+<p>痛苦，因一个人而生，一次冷落，会闷闷不乐，</p>
+<p>守住心中的风景，才是最美，拥有不变的感情，才是最真，无怨无悔，爱到深处，在苦也愿意，有情有义，情到浓时，在痛也甘心，不求彼此拥有，只愿一生相守，不求海枯石烂，只愿心灵相伴，秋风冷凄，飘散的落叶卷起一地的苍凉，随风逐流，找不到方向，觅不到归期，一路的跌跌撞撞，数不完的沟沟坎坎，只有雨声潇潇的夜里，才能听到寂寞的悲鸣，才能触摸到自己流淌着的酸楚。前方的路已迷茫不清，只感觉刺骨的凄冷，也许等来的是一场冰雪的掩埋，在寒冷中冰封了自己的灵魂，也许只有这一刻，才能凝固所有的疼痛。</p>
+<p>了解生活中的负累，无助时，赋予精神的支撑，</p>
+<p>懂得伪装后的坚强，流泪时，给予最真的心疼，</p>
+<p>默契不语，却心灵相通，春去秋来，却真情依然，没在身边，却在心里，走进的是心灵，没有牵手，却有挂牵，拥有的是感动，心的贴近，温暖着飘零，情的真诚，呵护着生命，阳光暖在身上，真情暖在心上春风吹在脸上，幸福印在心中，繁华散尽，一地烟尘，挥不去的纤纤背影。佛说前世五百年的回眸才能换来一次擦肩，可这来去匆匆的尘缘，又让我如何接受！如果能够轮回，我愿今生不曾遇见过，再修行五百年，那样我就可以换来一次与你相守。你可知道，这样的相思我难以承受，你可知否，多少无眠的夜晚，我独自倚窗泪流，岁月而歌，时光而过，独落红尘，情有冷暖，缘有聚散。</p>
+<p>爱有浓淡，心有真假，远近相安，朋友的情谊不是毫无底线，适可而止，世间的义没有单向的付出，有缘人难得，不是所有的人都能成朋友，真心人难觅，不是所有的缘都可以继续，聚散浮萍，懂得换位才能继续，缘起缘落，知道感恩才有可能，夜回三更，总是在有你的梦里惊醒，曾经你留给我的温情，如今却变成了万道锋芒，轻轻触摸就会钻心的疼，原来我紧紧握着的只是一个梦。无数次的梦里相见，无数次的泪流满面，我深深的体会到，忘记一段刻骨铭心的爱是这么难，一句放下又岂能像说的那么简单，一段尘缘情，痛彻心扉的却是一生痛。我总是有个疑问，在你孤单的日子，有没有过我的身影出现？在你寂寥的岁月，有没有过温存的曾经。</p>
+<p>爱，简单，只有思念，只有挂牵，无关风月，情，幸福，偶尔甜蜜，偶尔伤感，无欲无求，云在青山探头望，谁见碧水月影孤，如昨的记忆摇曳在冷风中，触摸不到，挥之不去，凝结成了殇。岁月的栏栅已承载不住流年的悲欢，尘世的繁华却掩盖不住伤心的过往；经年的青石小路已布满荒芜，叶落无痕，又有多少人明了那一叶知秋的凄婉，沧桑满径，怎不见当初的莺语呢喃！</p>
+<p><img src="http://7xqeui.com1.z0.glb.clouddn.com/3.png" alt="image"></p>
+<p>陪伴，无怨无悔，无论何时何地，以心作陪，</p>
+<p>付出，全心全意，无论天涯海角，以情相暖，</p>
+<p>寥寥数语，解开一个心结，简单拥抱，温暖一个生命，人间最温暖，莫过于有人懂有人疼，爱情最真实，有人恨有人爱有人讲，大千世界，茫然千年难解，茫茫人海，落寞独自忧伤，言不和无需再说，总给你带来伤心，道不同不必勉强，总给你带来伤害，人可以为金钱而投降，却不可以毫无底线，人可以为感情而卑微，却不可以失去尊严，爱，不属于某个人的专有词，情，不是毫不在乎没有知觉，琴声袅袅，箫声涤荡，落寞的心空在苍茫的世界流浪。不堪回首，那些缱绻在风尘里的过往，阻着天涯地角，隔着山高水长；散落在尘埃里的余香，已经失去原来的芬芳。多么希望上天许我一个愿望，让我穿越回相识的地方，用我所有的温情，陪伴你走向地老天荒。</p>
+<p>那么多的男女走进生命，真正停留的能有几个，</p>
+<p>那么多的风景掠过眼前，真正记住的能有几处，</p>
+<p>大千世界，茫然千年难解，茫茫人海，落寞独自忧伤，言不和无需再说，总给你带来伤心，道不同不必勉强，总给你带来伤害，人可以为金钱而投降，却不可以毫无底线，人可以为感情而卑微，却不可以失去尊严，爱，不属于某个人的专有词，情，不是毫不在乎没有知觉，轮回的季节，期待春暖花开，假如能让我经历一场茧变，我情愿忍受剧痛，卸掉所有的伪装，化茧为蝶，涉渡沧海，觅着你飘香的足迹，与你舞起一世情长。蝶影分谁一世情，独为你谱一曲，千年恋歌，甘愿为你舞尽一世芳华。画地牢房。等不到的天荒地老，贪恋了这尘世风花雪月的飘渺，挂满泪珠的眼角，谁会为我轻轻拭去这伤透我心的毒药？纷飞的眼泪伴随着痴心的牵盼。我奢望着，花儿不落，缘分不破，你不要错过我，一世尘缘，一帘幽梦。</p>
+<p>以爱说爱，爱要真心，以爱互爱，有爱就有缘，</p>
+<p>以情暖情，情要用心，以心交心，有情就有爱。<br><img src="http://7xqeui.com1.z0.glb.clouddn.com/4.png" alt="image"></p>
 
       
     </div>
@@ -328,9 +354,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/iOS/" rel="tag">#iOS</a>
+            <a href="/tags/心情/" rel="tag">#心情</a>
           
-            <a href="/tags/编程/" rel="tag">#编程</a>
+            <a href="/tags/推荐/" rel="tag">#推荐</a>
+          
+            <a href="/tags/转载/" rel="tag">#转载</a>
+          
+            <a href="/tags/随笔/" rel="tag">#随笔</a>
           
         </div>
       
@@ -339,17 +369,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/01/25/Switf-1/" rel="next" title="Switf_1">
-                <i class="fa fa-chevron-left"></i> Switf_1
+              <a href="/2016/01/26/修改状态栏颜色/" rel="next" title="修改状态栏颜色">
+                <i class="fa fa-chevron-left"></i> 修改状态栏颜色
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/01/25/随笔-锦瑟年华-如梦一场/" rel="prev" title="随笔--锦瑟年华,如梦一场">
-                随笔--锦瑟年华,如梦一场 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -398,8 +424,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/01/25/iOS弹幕实现及原理介绍/"
-           data-title="iOS弹幕实现及原理介绍" data-url="http://yoursite.com/2016/01/25/iOS弹幕实现及原理介绍/">
+      <div class="ds-thread" data-thread-key="2016/01/27/情有冷暖-缘有聚散/"
+           data-title="情有冷暖,缘有聚散" data-url="http://yoursite.com/2016/01/27/情有冷暖-缘有聚散/">
       </div>
     
   </div>
@@ -527,7 +553,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#u5B9E_u73B0_u51FA_u6765_u7684_u6548_u679C_3A"><span class="nav-number">1.</span> <span class="nav-text">实现出来的效果:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5F39_u5E55_u7C7B_u578B_3A"><span class="nav-number">2.</span> <span class="nav-text">弹幕类型:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5F39_u5E55_u5185_u5BB9_3A"><span class="nav-number">3.</span> <span class="nav-text">弹幕内容:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u4F7F_u7528_u65B9_u6CD5_3A"><span class="nav-number">4.</span> <span class="nav-text">使用方法:</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
