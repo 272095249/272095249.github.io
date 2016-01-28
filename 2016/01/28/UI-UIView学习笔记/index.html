@@ -1,0 +1,822 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="UIView,编程," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="1.创建window,每个App只有一个window123456789//创建并初始化window,给定屏幕大小self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];//[UIScreen mainScreen].bounds]  获取主屏幕的大小//设置背景颜色[self.window setBack">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UI_UIView学习笔记">
+<meta property="og:url" content="http://yoursite.com/2016/01/28/UI-UIView学习笔记/index.html">
+<meta property="og:site_name" content="harry sun">
+<meta property="og:description" content="1.创建window,每个App只有一个window123456789//创建并初始化window,给定屏幕大小self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];//[UIScreen mainScreen].bounds]  获取主屏幕的大小//设置背景颜色[self.window setBack">
+<meta property="og:updated_time" content="2016-01-28T13:50:09.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="UI_UIView学习笔记">
+<meta name="twitter:description" content="1.创建window,每个App只有一个window123456789//创建并初始化window,给定屏幕大小self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];//[UIScreen mainScreen].bounds]  获取主屏幕的大小//设置背景颜色[self.window setBack">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> UI_UIView学习笔记 | harry sun </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?827ec9be4972109f01fc68012a9c454b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">harry sun</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                UI_UIView学习笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-01-28T21:32:10+08:00" content="2016-01-28">
+              2016-01-28
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/UI学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">UI学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/01/28/UI-UIView学习笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/28/UI-UIView学习笔记/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="1-_u521B_u5EFAwindow_2C_u6BCF_u4E2AApp_u53EA_u6709_u4E00_u4E2Awindow"><a href="#1-_u521B_u5EFAwindow_2C_u6BCF_u4E2AApp_u53EA_u6709_u4E00_u4E2Awindow" class="headerlink" title="1.创建window,每个App只有一个window"></a>1.创建window,每个App只有一个window</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建并初始化window,给定屏幕大小</span></span><br><span class="line">self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];<span class="comment">//[UIScreen mainScreen].bounds]  获取主屏幕的大小</span></span><br><span class="line"><span class="comment">//设置背景颜色</span></span><br><span class="line">[self.window setBackgroundColor:[UIColor colorWithRed:<span class="number">243</span>/<span class="number">255.0</span> green:<span class="number">208</span>/<span class="number">255.0</span> blue:<span class="number">56</span>/<span class="number">255.0</span> alpha:<span class="number">1</span>]];    <span class="comment">// alpha  透明度</span></span><br><span class="line"><span class="comment">//作为主window并且显示</span></span><br><span class="line">[self.window makeKeyAndVisible];</span><br><span class="line"><span class="comment">//设置根视图控制器</span></span><br><span class="line">[self.window setRootViewController:[UIViewController <span class="keyword">new</span>]];</span><br><span class="line"><span class="comment">//点语法(--&gt;语法糖:复杂的数据简单的表现出来,语法盐:与语法糖相反,复杂的显示)</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-__u4E00_u4E9B_u5E38_u7528_u7684_u8BBE_u5907_u5C3A_u5BF8"><a href="#2-__u4E00_u4E9B_u5E38_u7528_u7684_u8BBE_u5907_u5C3A_u5BF8" class="headerlink" title="2. 一些常用的设备尺寸"></a>2. 一些常用的设备尺寸</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//屏幕尺寸point</span></span><br><span class="line">    <span class="comment">//iphone3G/3GS/4/4S: 320*480</span></span><br><span class="line">    <span class="comment">//iphone5/5S :  320*568</span></span><br><span class="line">    <span class="comment">//iphone6/6S :  375*667</span></span><br><span class="line">    <span class="comment">//iphone6+ /6s+ :   414*736</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//ipad 768*1024</span></span><br><span class="line">    <span class="comment">//ipad Air  768*1024</span></span><br><span class="line">    <span class="comment">//ipad pro  1024*1366</span></span><br><span class="line">     </span><br><span class="line">    <span class="comment">//获取当前设备屏幕的尺寸</span></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,<span class="built_in">NSStringFromCGRect</span>([<span class="built_in">UIScreen</span> mainScreen]<span class="variable">.bounds</span>));</span><br></pre></td></tr></table></figure>
+<h4 id="3-UIView_u7684_u521D_u59CB_u5316_u4EE5_u53CA_u89C6_u56FE_u7684_u5C42_u6B21"><a href="#3-UIView_u7684_u521D_u59CB_u5316_u4EE5_u53CA_u89C6_u56FE_u7684_u5C42_u6B21" class="headerlink" title="3.UIView的初始化以及视图的层次"></a>3.UIView的初始化以及视图的层次</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIView</span> *view1 = [[<span class="built_in">UIView</span> alloc]initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">100</span>, <span class="number">100</span>, <span class="number">100</span>, <span class="number">100</span>)];</span><br><span class="line">view1<span class="variable">.backgroundColor</span> = [<span class="built_in">UIColor</span> redColor];</span><br><span class="line">[<span class="keyword">self</span><span class="variable">.window</span> addSubview:view1];</span><br><span class="line"><span class="built_in">UIView</span> *view2 = [[<span class="built_in">UIView</span> alloc]initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">110</span>,<span class="number">110</span>, <span class="number">100</span>, <span class="number">100</span>)];</span><br><span class="line">view2<span class="variable">.backgroundColor</span> = [<span class="built_in">UIColor</span> yellowColor];</span><br><span class="line"> <span class="comment">// [self.window addSubview:view2];//将view2贴到view1上</span></span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.window</span> insertSubview:view2 atIndex:<span class="number">0</span>];</span><br><span class="line">    </span><br><span class="line"><span class="built_in">UIView</span> *view3 = [[<span class="built_in">UIView</span> alloc]initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">90</span>, <span class="number">90</span>, <span class="number">100</span>, <span class="number">100</span>)];</span><br><span class="line">view3<span class="variable">.backgroundColor</span> = [<span class="built_in">UIColor</span> magentaColor];</span><br><span class="line"><span class="comment">//    [self.window addSubview:view3];   //(只是添加上)</span></span><br><span class="line">    <span class="comment">//将view3添加到view1下面   (这个是添加顺带调节顺序)</span></span><br><span class="line"><span class="comment">//    [self.window insertSubview:view3 aboveSubview:view1];</span></span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.window</span> insertSubview:view3 belowSubview:view2];</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line"><span class="comment">//将某一个子视图放到最后面</span></span><br><span class="line"><span class="comment">//    [self.window sendSubviewToBack:view2];</span></span><br><span class="line">    <span class="comment">//将一个子视图移到最前面</span></span><br><span class="line"><span class="comment">//    [self.window bringSubviewToFront:view1];</span></span><br><span class="line">    <span class="comment">//交换视图</span></span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.window</span> exchangeSubviewAtIndex:<span class="number">0</span> withSubviewAtIndex:<span class="number">1</span>];</span><br><span class="line">    <span class="comment">//从父视图移除</span></span><br><span class="line"><span class="comment">//    [view2 removeFromSuperview];</span></span><br></pre></td></tr></table></figure>
+<h4 id="4-UIView_u7684_u57FA_u672C_u5C5E_u6027"><a href="#4-UIView_u7684_u57FA_u672C_u5C5E_u6027" class="headerlink" title="4.UIView的基本属性"></a>4.UIView的基本属性</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">UIView *simpleView = [[UIView alloc]initWithFrame:CGRectMake(<span class="number">10</span>, <span class="number">20</span>, <span class="number">100</span>, <span class="number">100</span>)];</span><br><span class="line"></span><br><span class="line">simpleView.bounds =CGRectMake(<span class="number">10</span>, <span class="number">10</span>, <span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line"></span><br><span class="line">simpleView.backgroundColor = [UIColor magentaColor];</span><br><span class="line">    </span><br><span class="line"><span class="comment">//中心点</span></span><br><span class="line"></span><br><span class="line">simpleView.center = CGPointMake(self.window.frame.size.width/<span class="number">2</span>,self.window.frame.size.height/<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//控制视图显隐</span></span><br><span class="line"></span><br><span class="line">simpleView.hidden =NO;<span class="comment">//(是否隐藏)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//控制视图透明度</span></span><br><span class="line"></span><br><span class="line">simpleView.alpha = <span class="number">1</span>;<span class="comment">//(0-1之间)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//标签</span></span><br><span class="line"></span><br><span class="line">simpleView.tag = <span class="number">101</span>;  <span class="comment">//用来做标记的</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//获取父视图(获取的是视图(强转))</span></span><br><span class="line"></span><br><span class="line">UIWindow *window = (UIWindow *)simpleView.superview;</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取子视图(用数组)</span></span><br><span class="line"></span><br><span class="line">NSArray *<span class="built_in">array</span> = simpleView.subviews;</span><br><span class="line"></span><br><span class="line">[self.window addSubview:simpleView];</span><br></pre></td></tr></table></figure>
+<h4 id="5-UILabel_u7684_u521B_u5EFA_u4EE5_u53CA_u57FA_u672C_u5C5E_u6027"><a href="#5-UILabel_u7684_u521B_u5EFA_u4EE5_u53CA_u57FA_u672C_u5C5E_u6027" class="headerlink" title="5.UILabel的创建以及基本属性"></a>5.UILabel的创建以及基本属性</h4><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">UILabel *<span class="keyword">label</span> = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 200, 100)];</span><br><span class="line"> <span class="keyword">label</span>.center = CGPointMake(self.<span class="keyword">window</span>.bounds.size.width/2, self.<span class="keyword">window</span>.bounds.size.height/2);</span><br><span class="line"><span class="comment">//设置label的颜色</span></span><br><span class="line"> <span class="keyword">label</span>.backgroundColor = [UIColor whiteColor];</span><br><span class="line"><span class="comment">//设置label文本</span></span><br><span class="line"> <span class="keyword">label</span>.text = @<span class="string">"人生若只如初见,何事秋风悲画扇,等闲变却故人心,却道故人心易变."</span>;</span><br><span class="line"><span class="comment">//文本对齐方式</span></span><br><span class="line"><span class="keyword">label</span>.textAlignment = NSTextAlignmentCenter;</span><br><span class="line"><span class="comment">//文本颜色</span></span><br><span class="line"><span class="keyword">label</span>.textColor = [UIColor magentaColor];</span><br><span class="line"><span class="comment">//文本字体大小</span></span><br><span class="line"><span class="comment">//label.font = [UIFont fontWithName:@"" size:22.0];</span></span><br><span class="line"><span class="keyword">label</span>.font = [UIFont systemFontOfSize:25];</span><br><span class="line"><span class="comment">//文本阴影</span></span><br><span class="line"><span class="keyword">label</span>.shadowOffset = CGSizeMake(2, -2);<span class="comment">//偏移量</span></span><br><span class="line"><span class="keyword">label</span>.shadowColor = [UIColor cyanColor];<span class="comment">//阴影颜色</span></span><br><span class="line"><span class="comment">//文本边框</span></span><br><span class="line"><span class="keyword">label</span>.layer.borderWidth = 3;<span class="comment">//边框宽度</span></span><br><span class="line"><span class="keyword">label</span>.layer.borderColor = [UIColor redColor].CGColor;<span class="comment">//边框颜色</span></span><br><span class="line"><span class="comment">//文本圆角</span></span><br><span class="line"><span class="keyword">label</span>.layer.cornerRadius = 10;<span class="comment">//内切圆半径</span></span><br><span class="line"><span class="keyword">label</span>.layer.masksToBounds = YES;<span class="comment">//切除多余部分</span></span><br><span class="line"><span class="comment">//设置文本行数</span></span><br><span class="line"><span class="keyword">label</span>.numberOfLines= 4;</span><br><span class="line"><span class="comment">//文本换行模式</span></span><br><span class="line"><span class="keyword">label</span>.lineBreakMode= NSLineBreakByWordWrapping;</span><br><span class="line"><span class="comment">//添加到父视图</span></span><br><span class="line">[self.<span class="keyword">window</span> addSubview:<span class="keyword">label</span>];</span><br></pre></td></tr></table></figure>
+<h4 id="6-Label_u6269_u5C55"><a href="#6-Label_u6269_u5C55" class="headerlink" title="6.Label扩展"></a>6.Label扩展</h4><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">UILabel *<span class="keyword">sh</span> = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 100)];</span><br><span class="line"><span class="keyword">sh</span>.center = CGPointMake(self.<span class="keyword">window</span>.bounds.size.width/2, self.<span class="keyword">window</span>.bounds.size.height/2);</span><br><span class="line"><span class="keyword">sh</span>.backgroundColor = [UIColor yellowColor];</span><br><span class="line"><span class="keyword">sh</span>.text = @<span class="string">"❤️ Floating_SH"</span>;</span><br><span class="line"><span class="keyword">sh</span>.textAlignment = NSTextAlignmentCenter;</span><br><span class="line"><span class="keyword">sh</span>.numberOfLines = 2;</span><br><span class="line"><span class="keyword">sh</span>.lineBreakMode = NSLineBreakByWordWrapping;</span><br><span class="line"><span class="keyword">sh</span>.font =[UIFont systemFontOfSize:17];</span><br><span class="line"><span class="keyword">sh</span>.layer.borderWidth = 2;</span><br><span class="line"><span class="keyword">sh</span>.layer.borderColor = [UIColor redColor].CGColor;</span><br><span class="line"><span class="keyword">sh</span>.layer.cornerRadius = 50;</span><br><span class="line"><span class="keyword">sh</span>.layer.masksToBounds=YES;</span><br><span class="line"><span class="comment">//旋转</span></span><br><span class="line"><span class="keyword">sh</span>.transform = CGAffineTransformMakeRotation(M_PI);</span><br><span class="line">    [self.<span class="keyword">window</span> addSubview:<span class="keyword">sh</span>];</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/UIView/" rel="tag">#UIView</a>
+          
+            <a href="/tags/编程/" rel="tag">#编程</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/01/28/时隔境迁-情怀未改/" rel="next" title="时隔境迁,情怀未改">
+                <i class="fa fa-chevron-left"></i> 时隔境迁,情怀未改
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/01/28/UI-UITextField学习笔记/" rel="prev" title="UI_UITextField学习笔记">
+                UI_UITextField学习笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/01/28/UI-UIView学习笔记/"
+           data-title="UI_UIView学习笔记" data-url="http://yoursite.com/2016/01/28/UI-UIView学习笔记/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://7xqeui.com1.z0.glb.clouddn.com/%E5%A4%B4%E5%83%8F.jpg"
+               alt="harry sun" />
+          <p class="site-author-name" itemprop="name">harry sun</p>
+          <p class="site-description motion-element" itemprop="description">实现梦想没那么伟大，80%的人只是输给了半途而废。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/272095249" target="_blank">
+                  
+                    <i class="fa fa-github"></i> github
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/5709421118/home?wvr=5&sudaref=www.baidu.com" target="_blank">
+                  
+                    <i class="fa fa-weibo"></i> weibo
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/sun-hao-37-71" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> zhihu
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+            <p class="site-author-name">Links</p>
+            
+              <span class="links-of-author-item">
+                <a href="http://dominic-lian.space" target="_blank">可爱刚</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://blog.csdn.net/floatingdreamsh" target="_blank">Floating_SH</a>
+              </span>
+            
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-_u521B_u5EFAwindow_2C_u6BCF_u4E2AApp_u53EA_u6709_u4E00_u4E2Awindow"><span class="nav-number">1.</span> <span class="nav-text">1.创建window,每个App只有一个window</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-__u4E00_u4E9B_u5E38_u7528_u7684_u8BBE_u5907_u5C3A_u5BF8"><span class="nav-number">2.</span> <span class="nav-text">2. 一些常用的设备尺寸</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-UIView_u7684_u521D_u59CB_u5316_u4EE5_u53CA_u89C6_u56FE_u7684_u5C42_u6B21"><span class="nav-number">3.</span> <span class="nav-text">3.UIView的初始化以及视图的层次</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-UIView_u7684_u57FA_u672C_u5C5E_u6027"><span class="nav-number">4.</span> <span class="nav-text">4.UIView的基本属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-UILabel_u7684_u521B_u5EFA_u4EE5_u53CA_u57FA_u672C_u5C5E_u6027"><span class="nav-number">5.</span> <span class="nav-text">5.UILabel的创建以及基本属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-Label_u6269_u5C55"><span class="nav-number">6.</span> <span class="nav-text">6.Label扩展</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">harry sun</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  
+
+
+  
+
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"harry-sun"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+
+  
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/MathJax.js"></script>
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/config/TeX-AMS-MML_HTMLorMML.js"></script>
+  
+
+
+  
+  
+
+
+</body>
+</html>

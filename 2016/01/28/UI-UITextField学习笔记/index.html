@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="iOS,技巧,编程," />
+  <meta name="keywords" content="UITextField,编程," />
 
 
 
@@ -57,16 +57,16 @@
 
 
 
-<meta name="description" content="12345678910111213141516- (void)downloadAction:(UIButton *)sender&amp;#123;    [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:self.model.url] options:0 progress:^(NSInteger re">
+<meta name="description" content="1.UITextField的创建以及其属性12345678910111213141516171819202122232425262728293031323334353637383940414243444546//创建文本框大小    UITextField *textfield = [[UITextField alloc]initWithFrame:CGRectMake(0, 0, 200, 10">
 <meta property="og:type" content="article">
-<meta property="og:title" content="图片下载到本地相册">
-<meta property="og:url" content="http://yoursite.com/2016/01/27/图片下载到本地相册/index.html">
+<meta property="og:title" content="UI_UITextField学习笔记">
+<meta property="og:url" content="http://yoursite.com/2016/01/28/UI-UITextField学习笔记/index.html">
 <meta property="og:site_name" content="harry sun">
-<meta property="og:description" content="12345678910111213141516- (void)downloadAction:(UIButton *)sender&amp;#123;    [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:self.model.url] options:0 progress:^(NSInteger re">
-<meta property="og:updated_time" content="2016-01-27T14:30:47.000Z">
+<meta property="og:description" content="1.UITextField的创建以及其属性12345678910111213141516171819202122232425262728293031323334353637383940414243444546//创建文本框大小    UITextField *textfield = [[UITextField alloc]initWithFrame:CGRectMake(0, 0, 200, 10">
+<meta property="og:updated_time" content="2016-01-28T13:58:05.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="图片下载到本地相册">
-<meta name="twitter:description" content="12345678910111213141516- (void)downloadAction:(UIButton *)sender&amp;#123;    [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:self.model.url] options:0 progress:^(NSInteger re">
+<meta name="twitter:title" content="UI_UITextField学习笔记">
+<meta name="twitter:description" content="1.UITextField的创建以及其属性12345678910111213141516171819202122232425262728293031323334353637383940414243444546//创建文本框大小    UITextField *textfield = [[UITextField alloc]initWithFrame:CGRectMake(0, 0, 200, 10">
 
 
 
@@ -84,7 +84,7 @@
   };
 </script>
 
-  <title> 图片下载到本地相册 | harry sun </title>
+  <title> UI_UITextField学习笔记 | harry sun </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -234,7 +234,7 @@
             
             
               
-                图片下载到本地相册
+                UI_UITextField学习笔记
               
             
           </h1>
@@ -246,8 +246,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-01-27T22:25:43+08:00" content="2016-01-27">
-              2016-01-27
+            <time itemprop="dateCreated" datetime="2016-01-28T21:48:55+08:00" content="2016-01-28">
+              2016-01-28
             </time>
           </span>
 
@@ -260,8 +260,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS项目学习/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS项目学习</span>
+                  <a href="/categories/UI学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">UI学习笔记</span>
                   </a>
                 </span>
 
@@ -276,8 +276,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/01/27/图片下载到本地相册/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/27/图片下载到本地相册/" itemprop="commentsCount"></span>
+                <a href="/2016/01/28/UI-UITextField学习笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/28/UI-UITextField学习笔记/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -298,8 +298,11 @@
       
 
       
-        <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)downloadAction:(<span class="built_in">UIButton</span> *)sender&#123;</span><br><span class="line"></span><br><span class="line">    [[SDWebImageManager sharedManager] downloadImageWithURL:[<span class="built_in">NSURL</span> URLWithString:<span class="keyword">self</span><span class="variable">.model</span><span class="variable">.url</span>] options:<span class="number">0</span> progress:^(<span class="built_in">NSInteger</span> receivedSize, <span class="built_in">NSInteger</span> expectedSize) &#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"处理下载进度"</span>);</span><br><span class="line">    &#125; completed:^(<span class="built_in">UIImage</span> *image, <span class="built_in">NSError</span> *error, SDImageCacheType cacheType, <span class="built_in">BOOL</span> finished, <span class="built_in">NSURL</span> *imageURL) &#123;</span><br><span class="line">        <span class="keyword">if</span> (error) &#123;</span><br><span class="line">            <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,error);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (image) &#123;</span><br><span class="line"></span><br><span class="line">*<span class="comment">//将图片写入相册中*</span></span><br><span class="line">            <span class="built_in">UIImageWriteToSavedPhotosAlbum</span>(image, <span class="keyword">self</span>, <span class="keyword">@selector</span>(imageSavedToPhotosAlbum:didFinishSavingWithError:contextInfo:), <span class="literal">nil</span>);</span><br><span class="line">            <span class="built_in">NSLog</span>(<span class="string">@"图片操作"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)imageSavedToPhotosAlbum:(<span class="built_in">UIImage</span> *)image didFinishSavingWithError:(<span class="built_in">NSError</span> *)error contextInfo:(<span class="keyword">void</span> *)contextInfo</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSString</span> *message = <span class="string">@"呵呵"</span>;</span><br><span class="line">    <span class="keyword">if</span> (!error) &#123;</span><br><span class="line">        message = <span class="string">@"成功保存到相册"</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        message = [error description];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"message is %@"</span>,message);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h4 id="1-UITextField_u7684_u521B_u5EFA_u4EE5_u53CA_u5176_u5C5E_u6027"><a href="#1-UITextField_u7684_u521B_u5EFA_u4EE5_u53CA_u5176_u5C5E_u6027" class="headerlink" title="1.UITextField的创建以及其属性"></a>1.UITextField的创建以及其属性</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建文本框大小</span></span><br><span class="line">    <span class="built_in">UITextField</span> *textfield = [[<span class="built_in">UITextField</span> alloc]initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">200</span>, <span class="number">100</span>)];</span><br><span class="line">    <span class="comment">//调整位置  //宏定义</span></span><br><span class="line">    <span class="comment">//    textfield.center = CGPointMake(KScreenWidth / 2, KScreenHeight / 2);</span></span><br><span class="line">    textfield<span class="variable">.backgroundColor</span> = [<span class="built_in">UIColor</span> whiteColor];</span><br><span class="line">    <span class="comment">//默认显示文本</span></span><br><span class="line">    textfield<span class="variable">.text</span> = <span class="string">@"秋裤"</span>;</span><br><span class="line">    <span class="comment">//可替换提示文本</span></span><br><span class="line">    <span class="comment">//    textfield.placeholder = @"别碰我!";</span></span><br><span class="line">    <span class="comment">//边框</span></span><br><span class="line">    textfield<span class="variable">.borderStyle</span> = <span class="built_in">UITextBorderStyleRoundedRect</span>;<span class="comment">//自带圆角</span></span><br><span class="line">    <span class="comment">//    textfield.borderStyle = UITextBorderStyleLine;</span></span><br><span class="line">    <span class="comment">//    textfield.borderStyle = UITextBorderStyleBezel;</span></span><br><span class="line">    <span class="comment">//字体</span></span><br><span class="line">    textfield<span class="variable">.font</span> = [<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">20.0</span>];</span><br><span class="line">    <span class="comment">//对齐方式</span></span><br><span class="line">    <span class="comment">//    textfield.textAlignment = NSTextAlignmentCenter;</span></span><br><span class="line">    textfield<span class="variable">.textAlignment</span> = <span class="built_in">NSTextAlignmentLeft</span>;</span><br><span class="line">    <span class="comment">//    textfield.textAlignment = NSTextAlignmentRight;</span></span><br><span class="line">    <span class="comment">//是否允许用户输入</span></span><br><span class="line">    textfield<span class="variable">.enabled</span> = <span class="literal">YES</span>;</span><br><span class="line">    <span class="comment">//是否在开始编辑的时候清空输入框内容</span></span><br><span class="line">    textfield<span class="variable">.clearsOnBeginEditing</span> = <span class="literal">YES</span>;</span><br><span class="line">    <span class="comment">//是否以原点方式显示内容</span></span><br><span class="line">    <span class="comment">//    textfield.secureTextEntry = YES;</span></span><br><span class="line">    <span class="comment">//弹出键盘的类型</span></span><br><span class="line">    <span class="comment">//    textfield.keyboardType = UIKeyboardTypeWebSearch;</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//键盘return键类型</span></span><br><span class="line">    textfield<span class="variable">.returnKeyType</span> = <span class="built_in">UIReturnKeyGoogle</span>;</span><br><span class="line">    <span class="comment">//清除按钮模式</span></span><br><span class="line">    textfield<span class="variable">.clearButtonMode</span> = <span class="built_in">UITextFieldViewModeAlways</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//输入框左视图</span></span><br><span class="line">    <span class="comment">//创建一个视图(VIView或者UIView的子类)</span></span><br><span class="line">    <span class="built_in">UIView</span> *leftView = [[<span class="built_in">UIView</span> alloc]initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">30</span>, <span class="number">30</span>)];</span><br><span class="line">    leftView<span class="variable">.backgroundColor</span> = [<span class="built_in">UIColor</span> redColor];</span><br><span class="line">    <span class="comment">//将创建的视图设置为文本框左视图</span></span><br><span class="line">    textfield<span class="variable">.leftView</span> = leftView;</span><br><span class="line">    <span class="comment">//设置左视图的显示模式(枚举值)</span></span><br><span class="line">    textfield<span class="variable">.leftViewMode</span> = <span class="built_in">UITextFieldViewModeAlways</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">UIView</span> *rightView = [[<span class="built_in">UIView</span> alloc]initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">30</span>, <span class="number">30</span>)];</span><br><span class="line">    rightView<span class="variable">.backgroundColor</span> = [<span class="built_in">UIColor</span> redColor];</span><br><span class="line">    textfield<span class="variable">.rightView</span> = rightView;</span><br><span class="line">    textfield<span class="variable">.rightViewMode</span> =<span class="built_in">UITextFieldViewModeAlways</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="2-UIButton_u7684_u521B_u5EFA_u4EE5_u53CA_u5176_u5C5E_u6027"><a href="#2-UIButton_u7684_u521B_u5EFA_u4EE5_u53CA_u5176_u5C5E_u6027" class="headerlink" title="2.UIButton的创建以及其属性"></a>2.UIButton的创建以及其属性</h4><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//使用便利构造器来创建按钮对象</span></span><br><span class="line">    UIButton *button = [UIButton <span class="string">buttonWithType:</span>UIButtonTypeCustom];<span class="comment">//子类有自己的便利构造器,就是用自己的   UIButtonTypeCustom和UIButtonTypeSystem 是我们常用的两种</span></span><br><span class="line"><span class="comment">//    button.tag = 111;</span></span><br><span class="line">    <span class="comment">//设定大小</span></span><br><span class="line">    button.frame=CGRectMake(<span class="number">0</span>, <span class="number">0</span>, <span class="number">100</span>,<span class="number">100</span>);</span><br><span class="line">    <span class="comment">//设定位置</span></span><br><span class="line">    button.center = CGPointMake(KScreenWidth <span class="regexp">/ 2, KScreenHeight /</span> <span class="number">2</span>);</span><br><span class="line">    <span class="comment">//设定背景颜色</span></span><br><span class="line">    button.backgroundColor = [UIColor brownColor];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//设置标题</span></span><br><span class="line">    [button <span class="string">setTitle:</span>@<span class="string">"点我呀!"</span> <span class="string">forState:</span>UIControlStateNormal];</span><br><span class="line"><span class="comment">//    [button setTitle:@"松开!" forState:UIControlStateHighlighted];</span></span><br><span class="line">    <span class="comment">//设置标题颜色</span></span><br><span class="line">    [button <span class="string">setTitleColor:</span>[UIColor redColor] <span class="string">forState:</span>UIControlStateNormal];<span class="comment">//普通状态</span></span><br><span class="line">    [button <span class="string">setTitleColor:</span>[UIColor greenColor] <span class="string">forState:</span>UIControlStateHighlighted];<span class="comment">//高亮状态</span></span><br><span class="line">    <span class="comment">//设置标题大小</span></span><br><span class="line">    button.titleLabel.font = [UIFont <span class="string">systemFontOfSize:</span><span class="number">25</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//事件</span></span><br><span class="line">    [button <span class="string">addTarget:</span>self <span class="string">action:</span><span class="annotation">@selector</span>(<span class="string">printWords:</span>) <span class="string">forControlEvents:</span>UIControlEventTouchUpInside];<span class="comment">//UIControlEventTouchDown  一碰就触发    UIControlEventTouchUpInside  按住跳起时触发</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//设置图片</span></span><br><span class="line"><span class="comment">////    [button setImage:[UIImage imageNamed:@"a.png"] forState:UIControlStateNormal];</span></span><br><span class="line"><span class="comment">//    [button setBackgroundImage:[UIImage imageNamed:@"a"] forState:UIControlStateNormal];</span></span><br><span class="line"><span class="comment">//    [button setImage:[UIImage imageNamed:@"b.jpg"] forState:UIControlStateHighlighted];//点击变图片</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//添加视图</span></span><br><span class="line">     [backView <span class="string">addSubview:</span>button];</span><br><span class="line">   </span><br><span class="line">    <span class="comment">//    textField.text = @"lanoukeji";</span></span><br><span class="line">    <span class="comment">//    textField.textColor = [UIColor redColor];</span></span><br><span class="line">    <span class="comment">//    textField.textAlignment = NSTextAlignmentLeft;</span></span><br></pre></td></tr></table></figure>
+<p>// 上方UIButton的点击事件(printWords: —-&gt;带冒号的是传递被点击的控件)</p>
+<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">-(<span class="type">void</span>)printWords:(<span class="type">UIButton</span> *)button&#123;</span><br><span class="line">    </span><br><span class="line">//    <span class="type">UIButton</span> *<span class="literal">result</span> = [self.window viewWithTag:<span class="number">111</span>];</span><br><span class="line">    <span class="type">CGFloat</span> red = arc4random() % <span class="number">256</span> / <span class="number">255</span>.<span class="number">0</span>;</span><br><span class="line">    <span class="type">CGFloat</span> green = arc4random() % <span class="number">256</span> / <span class="number">255</span>.<span class="number">0</span>;</span><br><span class="line">    <span class="type">CGFloat</span> blue = arc4random() %<span class="number">266</span> / <span class="number">255</span>.<span class="number">0</span>; </span><br><span class="line">    button.backgroundColor = [<span class="type">UIColor</span> colorWithRed:red green:green blue:blue alpha:<span class="number">1</span>];</span><br><span class="line">    <span class="type">CGFloat</span> x = arc4random() % (<span class="type">NSInteger</span>)(<span class="type">KScreenWidth</span> - <span class="number">100</span> ) +<span class="number">50</span>;</span><br><span class="line">    <span class="type">CGFloat</span> y = arc4random() % (<span class="type">NSInteger</span>)(<span class="type">KScreenHeight</span> - <span class="number">100</span>) +<span class="number">50</span>;</span><br><span class="line">    button.center = <span class="type">CGPointMake</span>(x ,  y);</span><br><span class="line">//    <span class="literal">result</span>.backgroundColor = [<span class="type">UIColor</span> cyanColor];//点击换颜色</span><br><span class="line">    <span class="type">NSLog</span>(@<span class="string">"这是按钮的点击方法..."</span>);</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -307,9 +310,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/iOS/" rel="tag">#iOS</a>
-          
-            <a href="/tags/技巧/" rel="tag">#技巧</a>
+            <a href="/tags/UITextField/" rel="tag">#UITextField</a>
           
             <a href="/tags/编程/" rel="tag">#编程</a>
           
@@ -320,17 +321,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/01/27/情有冷暖-缘有聚散/" rel="next" title="情有冷暖,缘有聚散">
-                <i class="fa fa-chevron-left"></i> 情有冷暖,缘有聚散
+              <a href="/2016/01/28/UI-UIView学习笔记/" rel="next" title="UI_UIView学习笔记">
+                <i class="fa fa-chevron-left"></i> UI_UIView学习笔记
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/01/27/Swift-2/" rel="prev" title="Swift_2">
-                Swift_2 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -379,8 +376,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/01/27/图片下载到本地相册/"
-           data-title="图片下载到本地相册" data-url="http://yoursite.com/2016/01/27/图片下载到本地相册/">
+      <div class="ds-thread" data-thread-key="2016/01/28/UI-UITextField学习笔记/"
+           data-title="UI_UITextField学习笔记" data-url="http://yoursite.com/2016/01/28/UI-UITextField学习笔记/">
       </div>
     
   </div>
@@ -508,7 +505,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-UITextField_u7684_u521B_u5EFA_u4EE5_u53CA_u5176_u5C5E_u6027"><span class="nav-number">1.</span> <span class="nav-text">1.UITextField的创建以及其属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-UIButton_u7684_u521B_u5EFA_u4EE5_u53CA_u5176_u5C5E_u6027"><span class="nav-number">2.</span> <span class="nav-text">2.UIButton的创建以及其属性</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
