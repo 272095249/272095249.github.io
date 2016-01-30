@@ -219,6 +219,141 @@
 
     
     
+      
+      
+        
+        
+        
+      
+
+      
+    
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/01/30/面试整理-1/" itemprop="url">
+                  面试整理_1
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-01-30T14:50:08+08:00" content="2016-01-30">
+              2016-01-30
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/面试/" itemprop="url" rel="index">
+                    <span itemprop="name">面试</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/01/30/面试整理-1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/30/面试整理-1/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="1-_u63CF_u8FF0_u5E94_u7528_u7A0B_u5E8F_u7684_u542F_u52A8_u987A_u5E8F"><a href="#1-_u63CF_u8FF0_u5E94_u7528_u7A0B_u5E8F_u7684_u542F_u52A8_u987A_u5E8F" class="headerlink" title="1.描述应用程序的启动顺序"></a>1.描述应用程序的启动顺序</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 程序入口main函数创建UIApplication实例和UIApplication代理实例</span><br><span class="line"><span class="number">2.</span> 在UIApplication代理实例中重写启动方法,设置第一ViewController</span><br><span class="line"><span class="number">3.</span> 在第一ViewController种添加控件,实现对应的程序界面</span><br></pre></td></tr></table></figure>
+<h4 id="2-_u4F7F_u7528UITableView_u65F6_u5019_u5FC5_u987B_u8981_u5B9E_u73B0_u7684_u51E0_u79CD_u65B9_u6CD5"><a href="#2-_u4F7F_u7528UITableView_u65F6_u5019_u5FC5_u987B_u8981_u5B9E_u73B0_u7684_u51E0_u79CD_u65B9_u6CD5" class="headerlink" title="2.使用UITableView时候必须要实现的几种方法"></a>2.使用UITableView时候必须要实现的几种方法</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">NSInteger</span>)tableView:(<span class="built_in">UITabelView</span> *)tableView numberOfRowsInSections:(<span class="built_in">NSInter</span>)section; 	<span class="comment">//这个方法返回每个分区的区数</span></span><br><span class="line">- (<span class="built_in">UITableViewCell</span> *)tableView:(<span class="built_in">UITableView</span> *)tableView cellForRowAtIndexPath:(<span class="built_in">NSIndexPath</span>)indexPath;		<span class="comment">//这个方法返回我们调用的每一个单元格</span></span><br></pre></td></tr></table></figure>
+<h4 id="3-_u5199_u4E00_u4E2A_u4FBF_u5229_u6784_u9020_u5668"><a href="#3-_u5199_u4E00_u4E2A_u4FBF_u5229_u6784_u9020_u5668" class="headerlink" title="3.写一个便利构造器"></a>3.写一个便利构造器</h4><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">+ (id)<span class="string">studentWithName:</span>(NSString *)newName <span class="string">adndAge:</span>(<span class="typename">int</span>)newAge&#123;</span><br><span class="line">	Student *stu = [[Student alloc] <span class="string">initWithName:</span>newName <span class="string">andAge:</span>newAge];</span><br><span class="line">	<span class="keyword">return</span> [stu autorelease];	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="4-UIImage__u521D_u59CB_u5316_u4E00_u5F20_u56FE_u7247_u6709_u51E0_u79CD_u65B9_u6CD5_3F__u7B80_u8FF0_u5404_u81EA_u7684_u4F18_u7F3A_u70B9"><a href="#4-UIImage__u521D_u59CB_u5316_u4E00_u5F20_u56FE_u7247_u6709_u51E0_u79CD_u65B9_u6CD5_3F__u7B80_u8FF0_u5404_u81EA_u7684_u4F18_u7F3A_u70B9" class="headerlink" title="4.UIImage 初始化一张图片有几种方法? 简述各自的优缺点"></a>4.UIImage 初始化一张图片有几种方法? 简述各自的优缺点</h4><ol>
+<li>从资源读取</li>
+</ol>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIImage</span> *image = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"1.png"</span>];</span><br></pre></td></tr></table></figure>
+<p>2.从网络读取</p>
+<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NSURL *url = [NSURL URLWithString:@"http://www.sinaimg.cn/qc/photo_auto/chezhan/<span class="number">2012/50/00</span>/<span class="number">15/80046_95</span>0.jpg"]<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>3.从本地读取</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 读取本地图片费resourse</span></span><br><span class="line"><span class="built_in">NSString</span> *aPath = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%@/Documents/%@.jpg"</span>,<span class="built_in">NSHomeDirectory</span>(),<span class="string">@"test"</span>];</span><br><span class="line"><span class="built_in">UIImage</span> *imgFromUrl = [[<span class="built_in">UIImage</span> alloc] initWithContentsOfFile:aPath];</span><br></pre></td></tr></table></figure>
+<p><strong><em>然而下面两种都没见过 </em></strong></p>
+<p>4.从现有的context中获得图像</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//添加ImageIO.framework and #import&lt;ImageIO/ImageIO.h&gt;</span></span><br><span class="line"><span class="built_in">CGImageSourceRef</span> source = <span class="built_in">CGImageSourceCreateWithURL</span>((<span class="built_in">CFURLRef</span>)url,<span class="literal">NULL</span>);</span><br><span class="line"><span class="built_in">CGImageRef</span> img= <span class="built_in">CGImageSourceCreateImageAtIndex</span>(source,<span class="number">0</span>,<span class="literal">NULL</span>);<span class="built_in">CGContextRef</span> ctx=<span class="built_in">UIGraphicsGetCurrentContext</span>();<span class="built_in">CGContextSaveGState</span>(ctx);<span class="comment">//transformCTM的2种方式</span><span class="comment">//CGContextConcatCTM(ctx, CGAffineTransformMakeScale(.2, -0.2));</span><span class="comment">//CGContextScaleCTM(ctx,1,-1);</span><span class="comment">//注意坐标要反下,用ctx来作为图片源 </span><span class="built_in">CGImageRef</span> capture=<span class="built_in">CGBitmapContextCreateImage</span>(ctx);<span class="built_in">CGContextDrawImage</span>(ctx, <span class="built_in">CGRectMake</span>(<span class="number">160</span>, <span class="number">0</span>, <span class="number">160</span>, <span class="number">230</span>), [image <span class="built_in">CGImage</span>]);<span class="built_in">CGContextDrawImage</span>(ctx, <span class="built_in">CGRectMake</span>(<span class="number">160</span>, <span class="number">230</span>, <span class="number">160</span>, <span class="number">230</span>), img);<span class="built_in">CGImageRef</span> capture2=<span class="built_in">CGBitmapContextCreateImage</span>(ctx);</span><br></pre></td></tr></table></figure>
+<p>5.用Quartz的CGImageSourceRef来读取图片</p>
+<pre><code>CGImageSourceRef source = CGImageSourceCreateWithURL((CFURLRef)url, NULL);
+CGImageRef img= CGImageSourceCreateImageAtIndex(source,0,NULL);
+</code></pre>
+          
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
 
     
       
@@ -311,6 +446,124 @@
         
           
             <p><img src="http://7xqeui.com1.z0.glb.clouddn.com/dzu7.jpg" alt="image"><br>朱窗半掩着，看着那银白色飘落，冰凉的手，拭过玻璃上的雾，让那银白色更清楚得看清我，但是它还是在我面前瞬逝而过，落在石板上。明明知道自己害怕冷，却爱上了雪。我们都是独行的人，在这个凛冽的年纪，奋力奔跑，无暇顾及途中的风花雪月。纵使有千般留恋，也必须在最短的时间里整理戎装，再度奔赴远方。</p>
+
+          
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/01/29/UI-视图控制器及其生命周期学习笔记/" itemprop="url">
+                  UI_视图控制器及其生命周期学习笔记
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-01-29T21:08:55+08:00" content="2016-01-29">
+              2016-01-29
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/UI学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">UI学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/01/29/UI-视图控制器及其生命周期学习笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/29/UI-视图控制器及其生命周期学习笔记/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="1-_u89C6_u56FE_u63A7_u5236_u5668"><a href="#1-_u89C6_u56FE_u63A7_u5236_u5668" class="headerlink" title="1.视图控制器"></a>1.视图控制器</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化方法</span></span><br><span class="line">-(instancetype)initWithNibName:(<span class="built_in">NSString</span> *)nibNameOrNil bundle:(<span class="built_in">NSBundle</span> *)nibBundleOrNil&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">self</span> = [<span class="keyword">super</span> initWithNibName:nibNameOrNil bundle:nibBundleOrNil])&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//    NSLog(@"0");//视图控制器的生命周期从这里开始</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//加载视图</span></span><br><span class="line"><span class="preprocessor">#warning 注意:重写loadView一定要指定根视图,否则会进入死循环(在loadView和viewDidLoad之间跳)</span></span><br><span class="line"><span class="comment">//- (void)loadView&#123;&#125;</span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>) changeToCustomPage&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//视图已经加载</span></span><br><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//视图将要显示</span></span><br><span class="line">- (<span class="keyword">void</span>)viewWillAppear:(<span class="built_in">BOOL</span>)animated&#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">//    NSLog(@"3");</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//视图已经显示</span></span><br><span class="line">- (<span class="keyword">void</span>)viewDidAppear:(<span class="built_in">BOOL</span>)animated&#123;</span><br><span class="line"><span class="comment">//    NSLog(@"4");</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//视图将要消失</span></span><br><span class="line">- (<span class="keyword">void</span>)viewWillDisappear:(<span class="built_in">BOOL</span>)animated&#123;</span><br><span class="line"><span class="comment">//    NSLog(@"5");</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//视图已经消失</span></span><br><span class="line">- (<span class="keyword">void</span>)viewDidDisappear:(<span class="built_in">BOOL</span>)animated&#123;</span><br><span class="line"><span class="comment">//    NSLog(@"6");//试图控制器在被移除之后生命周期结束</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2-_u952E_u76D8_u56DE_u6536_u95EE_u9898_3A"><a href="#2-_u952E_u76D8_u56DE_u6536_u95EE_u9898_3A" class="headerlink" title="2.键盘回收问题:"></a>2.键盘回收问题:</h4><p>键盘回收封装在类的内部:外界不需要重复的设置代理，但是可定制性比较弱，如果不想键盘回收，试图跳到下一个输入框就无法实现</p>
+<p>键盘回收封装在类的外部:外界的可定制性比较强，但是需要重复的书写代码</p>
+<p>容器视图控制器</p>
+<h5 id="u5148_u5BFC_u5165_u5B50_u89C6_u56FE_u63A7_u5236_u5668_u2014_26gt_3B_u5728_u7236_u89C6_u56FE_u63A7_u5236_u5668_u4E2D_u58F0_u660E_u5B50_u89C6_u56FE_u63A7_u5236_u5668_u7684_u5C5E_u6027_u2014_26gt_3B_u521B_u5EFA_u63A7_u5236_u5668_u2014_26gt_3B_u7ED9_u5F53_u524D_u63A7_u5236_u5668_u6DFB_u52A0_u5B50_u63A7_u5236_u5668_u2014_26gt_3B_u9ED8_u8BA4_u663E_u793A_u7B2C_u4E00_u4E2A_u9875_u9762_u7684_u63A7_u5236_u5668"><a href="#u5148_u5BFC_u5165_u5B50_u89C6_u56FE_u63A7_u5236_u5668_u2014_26gt_3B_u5728_u7236_u89C6_u56FE_u63A7_u5236_u5668_u4E2D_u58F0_u660E_u5B50_u89C6_u56FE_u63A7_u5236_u5668_u7684_u5C5E_u6027_u2014_26gt_3B_u521B_u5EFA_u63A7_u5236_u5668_u2014_26gt_3B_u7ED9_u5F53_u524D_u63A7_u5236_u5668_u6DFB_u52A0_u5B50_u63A7_u5236_u5668_u2014_26gt_3B_u9ED8_u8BA4_u663E_u793A_u7B2C_u4E00_u4E2A_u9875_u9762_u7684_u63A7_u5236_u5668" class="headerlink" title="先导入子视图控制器—&gt;在父视图控制器中声明子视图控制器的属性—&gt;创建控制器—&gt;给当前控制器添加子控制器—&gt;默认显示第一个页面的控制器"></a>先导入子视图控制器—&gt;在父视图控制器中声明子视图控制器的属性—&gt;创建控制器—&gt;给当前控制器添加子控制器—&gt;默认显示第一个页面的控制器</h5><p><img src="http://7xqeui.com1.z0.glb.clouddn.com/%E8%A7%86%E5%9B%BE1.png" alt="image"><br><img src="http://7xqeui.com1.z0.glb.clouddn.com/%E8%A7%86%E5%9B%BE2.png" alt="image"></p>
+<p>在其中子视图控制器中添加button,父控制器中写button的实现方法<br>子视图控制器的button:<br><img src="http://7xqeui.com1.z0.glb.clouddn.com/%E8%A7%86%E5%9B%BE3.png" alt="image"><br><img src="http://7xqeui.com1.z0.glb.clouddn.com/%E8%A7%86%E5%9B%BE4.png" alt="image"></p>
+<p>父视图控制器中对于子视图控制器button的实现方法:<br><img src="http://7xqeui.com1.z0.glb.clouddn.com/%E8%A7%86%E5%9B%BE5.png" alt="image"></p>
+<h4 id="3-_u7B80_u5355_u5C01_u88C5"><a href="#3-_u7B80_u5355_u5C01_u88C5" class="headerlink" title="3.简单封装"></a>3.简单封装</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">将一个label和一个textfield封装到一个view中,这样直接使用这个view就可以输出这个封装的类型(在<span class="variable">.h</span>中还需要声明这两个属性)</span><br><span class="line">LTView<span class="variable">.h</span>中</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>,<span class="keyword">nonatomic</span>) <span class="built_in">UILabel</span> *label;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>,<span class="keyword">nonatomic</span>) <span class="built_in">UITextField</span> *textField;</span><br><span class="line"></span><br><span class="line">LTView<span class="variable">.m</span>中</span><br><span class="line"><span class="comment">//重写初始化方法</span></span><br><span class="line">-(instancetype)initWithFrame:(<span class="built_in">CGRect</span>)frame</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//super:是编译器指令,指向父类发送消息</span></span><br><span class="line">    <span class="keyword">self</span> = [<span class="keyword">super</span> initWithFrame:frame];</span><br><span class="line">    <span class="comment">//1.父类完成共有的实例变量的初始化,将结果赋给子类</span></span><br><span class="line">    <span class="comment">//2.如果父类初始化操作失败,子类没有初始化的必要,直接返回即可</span></span><br><span class="line">    <span class="comment">//给父类发送初始化消息(将父类的初始化继承过来)</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">self</span>)&#123;   <span class="comment">//判断父类是否初始化成功</span></span><br><span class="line">        <span class="comment">//在初始化操作当中,尽量不要操作视图,只做数据的处理</span></span><br><span class="line">        [<span class="keyword">self</span> drawView];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)drawView&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">self</span><span class="variable">.label</span> = [[<span class="built_in">UILabel</span> alloc]initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">100</span>, <span class="number">50</span>)];</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.label</span><span class="variable">.text</span> = <span class="string">@"用户名"</span>;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.label</span><span class="variable">.backgroundColor</span> = [<span class="built_in">UIColor</span> redColor];</span><br><span class="line">    [<span class="keyword">self</span> addSubview:<span class="keyword">self</span><span class="variable">.label</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">self</span><span class="variable">.textField</span> = [[<span class="built_in">UITextField</span> alloc]initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">135</span>, <span class="number">0</span>, <span class="number">200</span>, <span class="number">50</span>)];</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.textField</span><span class="variable">.placeholder</span> = <span class="string">@"请输入用户名"</span>;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.textField</span><span class="variable">.backgroundColor</span> = [<span class="built_in">UIColor</span> brownColor];</span><br><span class="line">    [<span class="keyword">self</span> addSubview:<span class="keyword">self</span><span class="variable">.textField</span>];</span><br><span class="line"></span><br><span class="line">下面两个是创建view,并且修改其中的属性:</span><br><span class="line">    LTView *ltview1 = [[LTView alloc]initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">20</span>, <span class="number">80</span>, <span class="number">335</span>, <span class="number">50</span>)];</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.window</span> addSubview:ltview1];</span><br><span class="line">    LTView *ltview2 = [[LTView alloc]initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">20</span>, <span class="number">150</span>, <span class="number">335</span>, <span class="number">50</span>)];</span><br><span class="line">    ltview2<span class="variable">.label</span><span class="variable">.text</span> = <span class="string">@"密码"</span>;</span><br><span class="line">    ltview2<span class="variable">.textField</span><span class="variable">.secureTextEntry</span> = <span class="literal">YES</span>;</span><br><span class="line">    ltview2<span class="variable">.textField</span><span class="variable">.placeholder</span> =<span class="string">@"请输入密码"</span>;</span><br><span class="line">    ltview2<span class="variable">.textField</span><span class="variable">.backgroundColor</span> = [<span class="built_in">UIColor</span> cyanColor];</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.window</span> addSubview:ltview2];</span><br></pre></td></tr></table></figure>
+<p>将两个view添加到window上如图所示<br><img src="http://7xqeui.com1.z0.glb.clouddn.com/LTView.png" alt="image"></p>
 
           
         
@@ -1157,255 +1410,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/01/26/修改状态栏颜色/" itemprop="url">
-                  修改状态栏颜色
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-01-26T20:49:40+08:00" content="2016-01-26">
-              2016-01-26
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS项目学习/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS项目学习</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/01/26/修改状态栏颜色/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/26/修改状态栏颜色/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="u5C06_u72B6_u6001_u680F_u6539_u4E3A_u767D_u8272"><a href="#u5C06_u72B6_u6001_u680F_u6539_u4E3A_u767D_u8272" class="headerlink" title="将状态栏改为白色"></a>将状态栏改为白色</h3><ol>
-<li><p>在Info.plist中设置UIViewControllerBasedStatusBarAppearance 为NO </p>
-</li>
-<li><p>在需要改变状态栏颜色的  AppDelegate中在   didFinishLaunchingWithOptions   方法中增加：<br>[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];</p>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/01/26/弱水三千/" itemprop="url">
-                  弱水三千
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-01-26T11:45:53+08:00" content="2016-01-26">
-              2016-01-26
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/随笔/" itemprop="url" rel="index">
-                    <span itemprop="name">随笔</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/01/26/弱水三千/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/26/弱水三千/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><img src="http://7xqeui.com1.z0.glb.clouddn.com/%E5%BC%B1%E6%B0%B4%E4%B8%89%E5%8D%83.jpg" alt="image"></p>
-<h3 id="A1"><a href="#A1" class="headerlink" title="A1"></a>A1</h3><p>梨花飘落在你窗前 </p>
-<p>画中伊人在闺中怨</p>
-<p>谁把思念轻描淡写</p>
-<p>只想留足时间为你穿越</p>
-<h3 id="B1"><a href="#B1" class="headerlink" title="B1"></a>B1</h3><p>我停步白墙青瓦的屋檐</p>
-<p>等你撑伞走过我身边</p>
-<p>古镇上谁家的炊烟</p>
-<p>在为我们酝酿当年的月圆</p>
-<h3 id="C1"><a href="#C1" class="headerlink" title="C1"></a>C1</h3><p>一双鸳鸯 戏在雨中那水面</p>
-<p>就像思念苦里透着甜</p>
-<p>我不问弱水三千几人能为我怨 </p>
-<p>轮回百转 只求陪你续前缘</p>
-<h3 id="C2"><a href="#C2" class="headerlink" title="C2"></a>C2</h3><p>一曲琵琶 弦断邂逅的古街</p>
-<p>爱的桥段叫我怎么写</p>
-<p>那弱水三千若能把那 今生湮灭</p>
-<p>前世亏欠 我愿等来生再还</p>
-<h3 id="A2"><a href="#A2" class="headerlink" title="A2"></a>A2</h3><p>篆刻离别烟雨江南</p>
-<p>你的美我不忍落款</p>
-<p>牧笛吹皱岁月的脸</p>
-<p>红尘笑看偏偏为你眷恋</p>
-<h3 id="B2"><a href="#B2" class="headerlink" title="B2"></a>B2</h3><p>你手绣梅花报春的眉间</p>
-<p>溢满永世不悔的无邪</p>
-<p>牌坊上斑驳的记载</p>
-<p>可是你为等我刻下的誓言 </p>
-
-          
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -1452,21 +1456,21 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-count">15</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">5</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">14</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
