@@ -219,15 +219,123 @@
 
     
     
+
+    
       
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/02/24/UI-触摸事件以及responder/" itemprop="url">
+                  UI_触摸事件以及responder
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-02-24T14:16:05+08:00" content="2016-02-24">
+              2016-02-24
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/UI学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">UI学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/02/24/UI-触摸事件以及responder/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/24/UI-触摸事件以及responder/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
       
-        
-        
-        
       
 
       
-    
+        
+          
+            <h3 id="u89E6_u6478_u4E8B_u4EF6"><a href="#u89E6_u6478_u4E8B_u4EF6" class="headerlink" title="触摸事件"></a>触摸事件</h3><h5 id="u5F00_u59CB_u89E6_u6478"><a href="#u5F00_u59CB_u89E6_u6478" class="headerlink" title="开始触摸"></a>开始触摸</h5><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">-</span> (void)<span class="tag">touchesBegan</span>:(NSSet&lt;UITouch *&gt; *)<span class="tag">touches</span> <span class="tag">withEvent</span>:(UIEvent *)<span class="tag">event</span>&#123;	&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="u79FB_u52A8_u89E6_u6478"><a href="#u79FB_u52A8_u89E6_u6478" class="headerlink" title="移动触摸"></a>移动触摸</h5><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">-</span> (void)<span class="tag">touchesMoved</span>:(NSSet&lt;UITouch *&gt; *)<span class="tag">touches</span> <span class="tag">withEvent</span>:(UIEvent *)<span class="tag">event</span>&#123;	&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="u7ED3_u675F_u89E6_u6478"><a href="#u7ED3_u675F_u89E6_u6478" class="headerlink" title="结束触摸"></a>结束触摸</h5><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">-</span> (void)<span class="tag">touchesEnded</span>:(NSSet&lt;UITouch *&gt; *)<span class="tag">touches</span> <span class="tag">withEvent</span>:(UIEvent *)<span class="tag">event</span>&#123;	&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="u53D6_u6D88_u89E6_u6478"><a href="#u53D6_u6D88_u89E6_u6478" class="headerlink" title="取消触摸"></a>取消触摸</h5><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">-</span>(void)<span class="tag">touchesCancelled</span>:(NSSet&lt;UITouch *&gt; *)<span class="tag">touches</span> <span class="tag">withEvent</span>:(UIEvent *)<span class="tag">event</span>&#123;		&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="responder"><a href="#responder" class="headerlink" title="responder"></a>responder</h3><p>//UILabel、UIImageView的用户交互默认是关闭的</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIView</span> *view = [[<span class="built_in">UIView</span> alloc]initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">200</span>, <span class="number">200</span>)];</span><br><span class="line">view<span class="variable">.backgroundColor</span> = [<span class="built_in">UIColor</span> redColor];</span><br><span class="line">view<span class="variable">.center</span> = <span class="keyword">self</span><span class="variable">.view</span><span class="variable">.center</span>;</span><br><span class="line"><span class="comment">//NO关闭用户交互(就是用户碰了不管用了,例如游戏中不到级别不允许使用本级别以上的装备)</span></span><br><span class="line">view<span class="variable">.userInteractionEnabled</span> = <span class="literal">YES</span>;</span><br><span class="line">[<span class="keyword">self</span><span class="variable">.view</span> addSubview: view];</span><br></pre></td></tr></table></figure>
+<h5 id="u54CD_u5E94_u8005_u94FE"><a href="#u54CD_u5E94_u8005_u94FE" class="headerlink" title="响应者链"></a>响应者链</h5><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//打印响应者链</span></span><br><span class="line">    <span class="function">NSLog</span>(<span class="at_rule">@<span class="string">"响应者链顺序如下:"</span>);</span></span><br><span class="line">    <span class="function">NSLog</span>(<span class="at_rule">@<span class="string">"%@"</span>,button.nextResponder);</span></span><br><span class="line">    <span class="function">NSLog</span>(<span class="at_rule">@<span class="string">"%@"</span>,button.nextResponder.nextResponder);</span></span><br><span class="line">    <span class="function">NSLog</span>(<span class="at_rule">@<span class="string">"%@"</span>,button.nextResponder.nextResponder.nextResponder);</span></span><br><span class="line">    <span class="function">NSLog</span>(<span class="at_rule">@<span class="string">"%@"</span>,button.nextResponder.nextResponder.nextResponder.nextResponder);</span></span><br><span class="line">    <span class="function">NSLog</span>(<span class="at_rule">@<span class="string">"%@"</span>,button.nextResponder.nextResponder.nextResponder.nextResponder.nextResponder);</span></span><br><span class="line">    <span class="function">NSLog</span>(<span class="at_rule">@<span class="string">"%@"</span>,button.nextResponder.nextResponder.nextResponder.nextResponder.nextResponder.nextResponder);</span></span><br><span class="line">    <span class="function">NSLog</span>(<span class="at_rule">@<span class="string">"%@"</span>,button.nextResponder.nextResponder.nextResponder.nextResponder.nextResponder.nextResponder.nextResponder);</span></span><br><span class="line">    <span class="comment">//响应者链:AppDelegate--&gt;UIApplication--&gt;UIWindow--&gt;根视图控制器--&gt;根视图控制器上的子视图</span></span><br><span class="line">    <span class="comment">//事件处理的顺序与上方相反</span></span><br></pre></td></tr></table></figure>
+<h5 id="touchView"><a href="#touchView" class="headerlink" title="touchView"></a>touchView</h5><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取触碰设备的对象</span></span><br><span class="line">            <span class="built_in">UITouch</span> *touch = [touches anyObject];</span><br><span class="line">            <span class="comment">//获取前一个点</span></span><br><span class="line">            <span class="built_in">CGPoint</span> p1 = [touch previousLocationInView:<span class="keyword">self</span>];</span><br><span class="line">            <span class="comment">//获取当前的点</span></span><br><span class="line">            <span class="built_in">CGPoint</span> p2 = [touch locationInView:<span class="keyword">self</span>];    </span><br><span class="line">            <span class="comment">//根据两个点的横纵向距离来计算出移动结果,并将值赋给self.center更新位置</span></span><br><span class="line">            <span class="keyword">self</span><span class="variable">.center</span> = <span class="built_in">CGPointMake</span>(p2<span class="variable">.x</span>-p1<span class="variable">.x</span>+<span class="keyword">self</span><span class="variable">.center</span><span class="variable">.x</span>, p2<span class="variable">.y</span>-p1<span class="variable">.y</span>+<span class="keyword">self</span><span class="variable">.center</span><span class="variable">.y</span>);</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
 
     
       
@@ -1284,121 +1392,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/01/26/修改状态栏颜色/" itemprop="url">
-                  修改状态栏颜色
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-01-26T20:49:40+08:00" content="2016-01-26">
-              2016-01-26
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS项目学习/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS项目学习</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/01/26/修改状态栏颜色/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/26/修改状态栏颜色/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="u5C06_u72B6_u6001_u680F_u6539_u4E3A_u767D_u8272"><a href="#u5C06_u72B6_u6001_u680F_u6539_u4E3A_u767D_u8272" class="headerlink" title="将状态栏改为白色"></a>将状态栏改为白色</h3><ol>
-<li><p>在Info.plist中设置UIViewControllerBasedStatusBarAppearance 为NO </p>
-</li>
-<li><p>在需要改变状态栏颜色的  AppDelegate中在   didFinishLaunchingWithOptions   方法中增加：<br>[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];</p>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -1445,14 +1438,14 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-count">15</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
