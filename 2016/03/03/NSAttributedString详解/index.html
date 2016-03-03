@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="iOS,技巧,编程," />
+  <meta name="keywords" content="NSAttributedString,属性字符串,编程," />
 
 
 
@@ -57,16 +57,26 @@
 
 
 
-<meta name="description" content="应用中有时我们会有保存图片的需求，如利用UIImagePickerController用IOS设备内置的相机拍照，或是有时我们在应用程序中利用UIKit的 UIGraphicsBeginImageContext，UIGraphicsEndImageContext，UIGraphicsGetImageFromCurrentImageContext方法创建一张图像需要进行保存。 IOS的UIKit F">
+<meta name="description" content="NSAttributedString可以让我们使一个字符串显示的多样化，但是目前到iOS 5为止，好像对它支持的不是很好，因为显示起来不太方便（至少没有在OS X上方便）。首先导入CoreText.framework，并在需要使用的文件中导入：
+#import&amp;lt;CoreText/CoreText.h&amp;gt;
+创建一个NSMutableAttributedString：
+1NSMutableA">
 <meta property="og:type" content="article">
-<meta property="og:title" content="图片下载到本地相册">
-<meta property="og:url" content="http://yoursite.com/2016/01/27/图片下载到本地相册/index.html">
+<meta property="og:title" content="NSAttributedString详解">
+<meta property="og:url" content="http://yoursite.com/2016/03/03/NSAttributedString详解/index.html">
 <meta property="og:site_name" content="harry sun">
-<meta property="og:description" content="应用中有时我们会有保存图片的需求，如利用UIImagePickerController用IOS设备内置的相机拍照，或是有时我们在应用程序中利用UIKit的 UIGraphicsBeginImageContext，UIGraphicsEndImageContext，UIGraphicsGetImageFromCurrentImageContext方法创建一张图像需要进行保存。 IOS的UIKit F">
-<meta property="og:updated_time" content="2016-03-03T09:22:34.000Z">
+<meta property="og:description" content="NSAttributedString可以让我们使一个字符串显示的多样化，但是目前到iOS 5为止，好像对它支持的不是很好，因为显示起来不太方便（至少没有在OS X上方便）。首先导入CoreText.framework，并在需要使用的文件中导入：
+#import&amp;lt;CoreText/CoreText.h&amp;gt;
+创建一个NSMutableAttributedString：
+1NSMutableA">
+<meta property="og:image" content="http://7xqeui.com1.z0.glb.clouddn.com/%E6%8A%98%E7%BA%BF.png">
+<meta property="og:updated_time" content="2016-03-03T12:02:24.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="图片下载到本地相册">
-<meta name="twitter:description" content="应用中有时我们会有保存图片的需求，如利用UIImagePickerController用IOS设备内置的相机拍照，或是有时我们在应用程序中利用UIKit的 UIGraphicsBeginImageContext，UIGraphicsEndImageContext，UIGraphicsGetImageFromCurrentImageContext方法创建一张图像需要进行保存。 IOS的UIKit F">
+<meta name="twitter:title" content="NSAttributedString详解">
+<meta name="twitter:description" content="NSAttributedString可以让我们使一个字符串显示的多样化，但是目前到iOS 5为止，好像对它支持的不是很好，因为显示起来不太方便（至少没有在OS X上方便）。首先导入CoreText.framework，并在需要使用的文件中导入：
+#import&amp;lt;CoreText/CoreText.h&amp;gt;
+创建一个NSMutableAttributedString：
+1NSMutableA">
 
 
 
@@ -84,7 +94,7 @@
   };
 </script>
 
-  <title> 图片下载到本地相册 | harry sun </title>
+  <title> NSAttributedString详解 | harry sun </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -234,7 +244,7 @@
             
             
               
-                图片下载到本地相册
+                NSAttributedString详解
               
             
           </h1>
@@ -246,8 +256,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-01-27T22:25:43+08:00" content="2016-01-27">
-              2016-01-27
+            <time itemprop="dateCreated" datetime="2016-03-03T19:45:58+08:00" content="2016-03-03">
+              2016-03-03
             </time>
           </span>
 
@@ -260,8 +270,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS项目学习/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS项目学习</span>
+                  <a href="/categories/UI学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">UI学习笔记</span>
                   </a>
                 </span>
 
@@ -276,8 +286,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/01/27/图片下载到本地相册/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/27/图片下载到本地相册/" itemprop="commentsCount"></span>
+                <a href="/2016/03/03/NSAttributedString详解/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/03/NSAttributedString详解/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -298,9 +308,24 @@
       
 
       
-        <p>应用中有时我们会有保存图片的需求，如利用UIImagePickerController用IOS设备内置的相机拍照，或是有时我们在应用程序中利用UIKit的 UIGraphicsBeginImageContext，UIGraphicsEndImageContext，UIGraphicsGetImageFromCurrentImageContext方法创建一张图像需要进行保存。 IOS的UIKit Framework提供了UIImageWriteToSavedPhotosAlbum方法对图像进行保存，该方法会将image保存至用户的相册中，描述如下：</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)downloadAction:(<span class="built_in">UIButton</span> *)sender&#123;</span><br><span class="line"></span><br><span class="line">    [[SDWebImageManager sharedManager] downloadImageWithURL:[<span class="built_in">NSURL</span> URLWithString:<span class="keyword">self</span><span class="variable">.model</span><span class="variable">.url</span>] options:<span class="number">0</span> progress:^(<span class="built_in">NSInteger</span> receivedSize, <span class="built_in">NSInteger</span> expectedSize) &#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"处理下载进度"</span>);</span><br><span class="line">    &#125; completed:^(<span class="built_in">UIImage</span> *image, <span class="built_in">NSError</span> *error, SDImageCacheType cacheType, <span class="built_in">BOOL</span> finished, <span class="built_in">NSURL</span> *imageURL) &#123;</span><br><span class="line">        <span class="keyword">if</span> (error) &#123;</span><br><span class="line">            <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,error);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (image) &#123;</span><br><span class="line"></span><br><span class="line">*<span class="comment">//将图片写入相册中*</span></span><br><span class="line">            <span class="built_in">UIImageWriteToSavedPhotosAlbum</span>(image, <span class="keyword">self</span>, <span class="keyword">@selector</span>(imageSavedToPhotosAlbum:didFinishSavingWithError:contextInfo:), <span class="literal">nil</span>);</span><br><span class="line">            <span class="built_in">NSLog</span>(<span class="string">@"图片操作"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)imageSavedToPhotosAlbum:(<span class="built_in">UIImage</span> *)image didFinishSavingWithError:(<span class="built_in">NSError</span> *)error contextInfo:(<span class="keyword">void</span> *)contextInfo</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSString</span> *message = <span class="string">@"呵呵"</span>;</span><br><span class="line">    <span class="keyword">if</span> (!error) &#123;</span><br><span class="line">        message = <span class="string">@"成功保存到相册"</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        message = [error description];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"message is %@"</span>,message);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>NSAttributedString可以让我们使一个字符串显示的多样化，但是目前到iOS 5为止，好像对它支持的不是很好，因为显示起来不太方便（至少没有在OS X上方便）。<br>首先导入CoreText.framework，并在需要使用的文件中导入：</p>
+<pre><code>#import&lt;CoreText/CoreText.h&gt;
+</code></pre><p>创建一个NSMutableAttributedString：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSMutableAttributedString</span> *attriString = [[<span class="built_in">NSMutableAttributedString</span> alloc] initWithString:<span class="string">@"this is test!"</span>] ;</span><br></pre></td></tr></table></figure>
+<p>非常常规的创建方式，接下来我们给它配置属性：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//把this的字体颜色变为红色  </span></span><br><span class="line">[attriString addAttribute:(<span class="built_in">NSString</span> *)kCTForegroundColorAttributeName  </span><br><span class="line">                    value:(<span class="keyword">id</span>)[<span class="built_in">UIColor</span> redColor]<span class="variable">.CGColor</span>   </span><br><span class="line">                    range:<span class="built_in">NSMakeRange</span>(<span class="number">0</span>, <span class="number">4</span>)];  </span><br><span class="line"><span class="comment">//把is变为黄色  </span></span><br><span class="line">[attriString addAttribute:(<span class="built_in">NSString</span> *)kCTForegroundColorAttributeName  </span><br><span class="line">                    value:(<span class="keyword">id</span>)[<span class="built_in">UIColor</span> yellowColor]<span class="variable">.CGColor</span>   </span><br><span class="line">                    range:<span class="built_in">NSMakeRange</span>(<span class="number">5</span>, <span class="number">2</span>)];  </span><br><span class="line"><span class="comment">//改变this的字体，value必须是一个CTFontRef  </span></span><br><span class="line">[attriString addAttribute:(<span class="built_in">NSString</span> *)kCTFontAttributeName  </span><br><span class="line">                    value:(<span class="keyword">id</span>)CTFontCreateWithName((<span class="built_in">CFStringRef</span>)[<span class="built_in">UIFont</span> boldSystemFontOfSize:<span class="number">14</span>]<span class="variable">.fontName</span>, <span class="number">14</span>, <span class="literal">NULL</span>)  </span><br><span class="line">                    range:<span class="built_in">NSMakeRange</span>(<span class="number">0</span>, <span class="number">4</span>)];  </span><br><span class="line"><span class="comment">//给this加上下划线，value可以在指定的枚举中选择  </span></span><br><span class="line">[attriString addAttribute:(<span class="built_in">NSString</span> *)kCTUnderlineStyleAttributeName  </span><br><span class="line">                    value:(<span class="keyword">id</span>)[<span class="built_in">NSNumber</span> numberWithInt:kCTUnderlineStyleDouble]  </span><br><span class="line">                    range:<span class="built_in">NSMakeRange</span>(<span class="number">0</span>, <span class="number">4</span>)];  </span><br><span class="line"><span class="keyword">return</span> attriString;</span><br></pre></td></tr></table></figure>
+<p>这样就算是配置好了，但是我们可以发现NSAttributedString继承于NSObject，并且不支持任何draw的方法，那我们就只能自己draw了。写一个UIView的子类（假设命名为TView），在initWithFrame中把背景色设为透明（self.backgroundColor = [UIColor clearColor]），然后在重写drawRect方法：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">-(<span class="keyword">void</span>)drawRect:(<span class="built_in">CGRect</span>)rect&#123;  </span><br><span class="line">    [<span class="keyword">super</span> drawRect:rect];  </span><br><span class="line">      </span><br><span class="line">    <span class="built_in">NSAttributedString</span> *attriString = getAttributedString();  </span><br><span class="line">      </span><br><span class="line">    <span class="built_in">CGContextRef</span> ctx = <span class="built_in">UIGraphicsGetCurrentContext</span>();  </span><br><span class="line">    <span class="built_in">CGContextConcatCTM</span>(ctx, <span class="built_in">CGAffineTransformScale</span>(<span class="built_in">CGAffineTransformMakeTranslation</span>(<span class="number">0</span>, rect<span class="variable">.size</span><span class="variable">.height</span>), <span class="number">1.</span>f, -<span class="number">1.</span>f));  </span><br><span class="line">      </span><br><span class="line">    CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString((<span class="built_in">CFAttributedStringRef</span>)attriString);  </span><br><span class="line">    <span class="built_in">CGMutablePathRef</span> path = <span class="built_in">CGPathCreateMutable</span>();  </span><br><span class="line">    <span class="built_in">CGPathAddRect</span>(path, <span class="literal">NULL</span>, rect);  </span><br><span class="line">      </span><br><span class="line">    CTFrameRef frame = CTFramesetterCreateFrame(framesetter, <span class="built_in">CFRangeMake</span>(<span class="number">0</span>, <span class="number">0</span>), path, <span class="literal">NULL</span>);  </span><br><span class="line">    <span class="built_in">CFRelease</span>(path);  </span><br><span class="line">    <span class="built_in">CFRelease</span>(framesetter);  </span><br><span class="line">      </span><br><span class="line">    CTFrameDraw(frame, ctx);  </span><br><span class="line">    <span class="built_in">CFRelease</span>(frame);  </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p><img src="http://7xqeui.com1.z0.glb.clouddn.com/%E6%8A%98%E7%BA%BF.png" alt="image"></p>
+<p>坐标类似于数学中的坐标，可以先不调整CTM，看它是什么样子的，下面两种调整方法是完全一样的：</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CGContextConcatCTM<span class="list">(<span class="keyword">ctx</span>, CGAffineTransformScale<span class="list">(<span class="keyword">CGAffineTransformMakeTranslation</span><span class="list">(<span class="number">0</span>, rect.size.height)</span>, <span class="number">1</span>.f, <span class="number">-1</span>.f)</span>)</span><span class="comment">; </span></span><br><span class="line">CGContextTranslateCTM<span class="list">(<span class="keyword">ctx</span>, <span class="number">0</span>, rect.size.height)</span><span class="comment">;  </span></span><br><span class="line">CGContextScaleCTM<span class="list">(<span class="keyword">ctx</span>, <span class="number">1</span>, <span class="number">-1</span>)</span><span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>CTFramesetter是CTFrame的创建工厂，NSAttributedString需要通过CTFrame绘制到界面上，得到CTFramesetter后，创建path（绘制路径），然后得到CTFrame，最后通过CTFrameDraw方法绘制到界面上。<br>如果想要计算NSAttributedString所要的size，就需要用到这个API：<br>CTFramesetterSuggestFrameSizeWithConstraints，用NSString的sizeWithFont算多行时会算不准的，因为在CoreText里，行间距也是你来控制的。<br>设置行间距和换行模式都是设置一个属性：kCTParagraphStyleAttributeName，这个属性里面又分为很多子<br>属性，其中就包括</p>
+<p>~kCTLineBreakByCharWrapping<br>~kCTParagraphStyleSpecifierLineSpacingAdjustment<br>设置如下：</p>
+<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">//段落  </span><br><span class="line">    //line break  </span><br><span class="line">CTParagraphStyleSetting lineBreakMode<span class="comment">;  </span></span><br><span class="line">CTLineBreakMode lineBreak = kCTLineBreakByCharWrapping<span class="comment">; //换行模式  </span></span><br><span class="line">lineBreakMode.spec = kCTParagraphStyleSpecifierLineBreakMode<span class="comment">;  </span></span><br><span class="line">lineBreakMode.value = &amp;lineBreak<span class="comment">;  </span></span><br><span class="line">lineBreakMode.valueSize = sizeof(CTLineBreakMode)<span class="comment">;  </span></span><br><span class="line">    //行间距  </span><br><span class="line">CTParagraphStyleSetting LineSpacing<span class="comment">;  </span></span><br><span class="line">CGFloat spacing = 4.0<span class="comment">;  //指定间距  </span></span><br><span class="line">LineSpacing.spec = kCTParagraphStyleSpecifierLineSpacingAdjustment<span class="comment">;  </span></span><br><span class="line">LineSpacing.value = &amp;spacing<span class="comment">;  </span></span><br><span class="line">LineSpacing.valueSize = sizeof(CGFloat)<span class="comment">;  </span></span><br><span class="line">  </span><br><span class="line">CTParagraphStyleSetting settings[] = &#123;lineBreakMode,LineSpacing&#125;<span class="comment">;  </span></span><br><span class="line">CTParagraphStyleRef paragraphStyle = CTParagraphStyleCreate(settings, 2)<span class="comment">;   //第二个参数为settings的长度  </span></span><br><span class="line">[attributedString addAttribute:(NSString *)kCTParagraphStyleAttributeName  </span><br><span class="line">                         value:(id)paragraphStyle  </span><br><span class="line">                         range:NSMakeRange(0, attributedString.length)]<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>这并不是唯一的方法，还有另一种替代方案:</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">CATextLayer</span> *textLayer = [<span class="built_in">CATextLayer</span> layer];  </span><br><span class="line">textLayer<span class="variable">.string</span> = getAttributedString();  </span><br><span class="line">textLayer<span class="variable">.frame</span> = <span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="built_in">CGRectGetMaxY</span>(view<span class="variable">.frame</span>), <span class="number">200</span>, <span class="number">200</span>);  </span><br><span class="line">[<span class="keyword">self</span><span class="variable">.view</span><span class="variable">.layer</span> addSublayer:textLayer];</span><br></pre></td></tr></table></figure>
+<p>CATextLayer可以直接支持NSAttributedString！</p>
+
       
     </div>
 
@@ -308,9 +333,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/iOS/" rel="tag">#iOS</a>
+            <a href="/tags/NSAttributedString/" rel="tag">#NSAttributedString</a>
           
-            <a href="/tags/技巧/" rel="tag">#技巧</a>
+            <a href="/tags/属性字符串/" rel="tag">#属性字符串</a>
           
             <a href="/tags/编程/" rel="tag">#编程</a>
           
@@ -321,17 +346,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/01/27/情有冷暖-缘有聚散/" rel="next" title="情有冷暖,缘有聚散">
-                <i class="fa fa-chevron-left"></i> 情有冷暖,缘有聚散
+              <a href="/2016/03/03/编码技巧/" rel="next" title="编程技巧">
+                <i class="fa fa-chevron-left"></i> 编程技巧
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/01/27/Swift-2/" rel="prev" title="Swift_2">
-                Swift_2 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -380,8 +401,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/01/27/图片下载到本地相册/"
-           data-title="图片下载到本地相册" data-url="http://yoursite.com/2016/01/27/图片下载到本地相册/">
+      <div class="ds-thread" data-thread-key="2016/03/03/NSAttributedString详解/"
+           data-title="NSAttributedString详解" data-url="http://yoursite.com/2016/03/03/NSAttributedString详解/">
       </div>
     
   </div>
