@@ -1,0 +1,829 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Switf,编程," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="接上文 : Swift_1点击Swift_1查看Swift第一模块的学习经验下面便是Swift的第二模块的学习
+模块10.结构体1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Swift_2">
+<meta property="og:url" content="http://yoursite.com/2016/01/27/Swift-2/index.html">
+<meta property="og:site_name" content="harry sun">
+<meta property="og:description" content="接上文 : Swift_1点击Swift_1查看Swift第一模块的学习经验下面便是Swift的第二模块的学习
+模块10.结构体1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727">
+<meta property="og:updated_time" content="2016-03-03T09:35:04.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Swift_2">
+<meta name="twitter:description" content="接上文 : Swift_1点击Swift_1查看Swift第一模块的学习经验下面便是Swift的第二模块的学习
+模块10.结构体1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> Swift_2 | harry sun </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?827ec9be4972109f01fc68012a9c454b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">harry sun</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Swift_2
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-01-27T22:32:42+08:00" content="2016-01-27">
+              2016-01-27
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/swift/" itemprop="url" rel="index">
+                    <span itemprop="name">swift</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/01/27/Swift-2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/27/Swift-2/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>接上文 : <a href="http://harry-sun.space/2016/01/25/Switf-1/" target="_blank" rel="external">Swift_1</a><br>点击Swift_1查看Swift第一模块的学习经验下面便是Swift的第二模块的学习</p>
+<h3 id="u6A21_u575710-_u7ED3_u6784_u4F53"><a href="#u6A21_u575710-_u7ED3_u6784_u4F53" class="headerlink" title="模块10.结构体"></a>模块10.结构体</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在swift中, Int, Float, String, Array, Dict 他们都是"值类型". 包括结构体.</span></span><br><span class="line"><span class="comment">// 以上类型的实现, 都是用结构体实现的.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 结构体的定义</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Student1</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> name: <span class="type">String</span></span><br><span class="line">    <span class="keyword">var</span> age: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">var</span> gender: <span class="type">Bool</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 也能定义函数.</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> stu1:<span class="type">Student1</span> = <span class="type">Student1</span>(name: <span class="string">"强哥"</span>, age: <span class="number">28</span>, gender: <span class="literal">true</span>)</span><br><span class="line"><span class="built_in">print</span>(stu1.name)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果成员变量为可选类型, 系统会额外生成一个构造方法, 此方法将所有成员变量设置为nil</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Student2</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 加问号表示可以为空</span></span><br><span class="line">    <span class="keyword">var</span> name: <span class="type">String</span>?</span><br><span class="line">    <span class="keyword">var</span> age: <span class="type">Int</span>?</span><br><span class="line">    <span class="keyword">var</span> gender: <span class="type">Bool</span>?</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> stu2:<span class="type">Student2</span> = <span class="type">Student2</span>()</span><br><span class="line"><span class="built_in">print</span>(stu2.name)</span><br><span class="line"><span class="keyword">var</span> stu3:<span class="type">Student2</span> = <span class="type">Student2</span>(name: <span class="string">"强哥"</span>, age: <span class="number">28</span>, gender: <span class="literal">true</span>)</span><br><span class="line"><span class="comment">// 告诉编译器, 此时name一定有值, 请放心使用</span></span><br><span class="line"><span class="built_in">print</span>(stu3.name!)  <span class="comment">// 打印是会打印出Optional --&gt; 加上!的时候会将其去掉(确定其有值)</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Student3</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> name: <span class="type">String</span>?</span><br><span class="line">    <span class="keyword">var</span> age: <span class="type">Int</span>?</span><br><span class="line">    <span class="keyword">var</span> gender: <span class="type">Bool</span>?</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 定义方法/函数</span></span><br><span class="line">    <span class="func"><span class="keyword">func</span> <span class="title">study</span><span class="params">()</span></span> -&gt; <span class="type">Void</span>&#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"<span class="subst">\(name!)</span> 正在学习"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="func"><span class="keyword">func</span> <span class="title">play</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"<span class="subst">\(name!)</span> 正在玩耍"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 加上mutating后, 该方法可以修改本结构体内的成员变量</span></span><br><span class="line">    <span class="keyword">mutating</span> <span class="func"><span class="keyword">func</span> <span class="title">changeName</span><span class="params">()</span></span> &#123;</span><br><span class="line">        name = <span class="string">"张三"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> stu4:<span class="type">Student3</span> = <span class="type">Student3</span>(name: <span class="string">"强哥"</span>, age: <span class="number">28</span>, gender: <span class="literal">true</span>)</span><br><span class="line">stu4.study()</span><br><span class="line">stu4.play()</span><br><span class="line">stu4.changeName()</span><br><span class="line"><span class="built_in">print</span>(stu4.name!)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Student4</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> name: <span class="type">String</span>?</span><br><span class="line">    <span class="keyword">var</span> age: <span class="type">Int</span>?</span><br><span class="line">    <span class="keyword">var</span> gender: <span class="type">Bool</span>?</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 重写构造方法</span></span><br><span class="line">    <span class="comment">// 重写所有变量都为空的方法</span></span><br><span class="line">    <span class="keyword">init</span>() &#123;</span><br><span class="line">        <span class="keyword">self</span>.name = <span class="string">"强哥!!!!!!"</span></span><br><span class="line">        <span class="keyword">self</span>.age = <span class="number">28</span></span><br><span class="line">        <span class="keyword">self</span>.gender = <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">init</span>(name: <span class="type">String</span>, age: <span class="type">Int</span>, gender: <span class="type">Bool</span>) &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">self</span>.name = name</span><br><span class="line">        <span class="keyword">self</span>.age = age</span><br><span class="line">        <span class="keyword">self</span>.gender = gender</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> stu5:<span class="type">Student4</span> = <span class="type">Student4</span>()</span><br><span class="line"><span class="built_in">print</span>(stu5.name!)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> stu6:<span class="type">Student4</span> = <span class="type">Student4</span>(name: <span class="string">"超人"</span>, age: <span class="number">1000</span>, gender: <span class="literal">false</span>)</span><br><span class="line"><span class="built_in">print</span>(stu6.name!)</span><br></pre></td></tr></table></figure>
+<h3 id="u6A21_u575711-_u7C7B"><a href="#u6A21_u575711-_u7C7B" class="headerlink" title="模块11.类"></a>模块11.类</h3><figure class="highlight zephir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">///////////////////// 11.类 //////////////////////</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person1</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> name: String?</span><br><span class="line">    <span class="keyword">var</span> age: <span class="keyword">Int</span>?</span><br><span class="line">    <span class="keyword">var</span> gender: <span class="keyword">Bool</span>?</span><br><span class="line">    <span class="keyword">var</span> height: <span class="keyword">Float</span>?</span><br><span class="line">    </span><br><span class="line">    init (name: String, age: <span class="keyword">Int</span>, gender: <span class="keyword">Bool</span>, height: <span class="keyword">Float</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.name = name</span><br><span class="line">        <span class="keyword">self</span>.age = age</span><br><span class="line">        <span class="keyword">self</span>.gender = gender</span><br><span class="line">        <span class="keyword">self</span>.height = height</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    init () &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> person1: Person1 = Person1(name: <span class="string">"强哥"</span>, age: <span class="number">28</span>, gender: <span class="keyword">true</span>, height: <span class="number">300</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="keyword">var</span> s1: Student1 = Student1(name: <span class="string">"强哥"</span>, age: <span class="number">28</span>, gender: <span class="keyword">true</span>)</span><br><span class="line"><span class="keyword">var</span> s2:Student1 = s1;</span><br><span class="line">s2.name = <span class="string">"张三"</span></span><br><span class="line"><span class="keyword">print</span>(s1.name)  <span class="comment">// ???  ---&gt;打印出强哥(这里是结构体,进行的是值拷贝,指向不同的位置)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> p1: Person1 = Person1(name: <span class="string">"强哥"</span>, age: <span class="number">28</span>, gender: <span class="keyword">true</span>, height: <span class="number">300</span>)</span><br><span class="line"><span class="keyword">var</span> p2: Person1 = p1</span><br><span class="line">p2.name = <span class="string">"张三"</span></span><br><span class="line"><span class="keyword">print</span>(p1.name)  <span class="comment">// ???  ---&gt;打印出张三(这里进行的是址拷贝,就是指向同一个位置)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> <span class="keyword">array</span>: <span class="keyword">Array</span>&lt;<span class="keyword">Int</span>&gt; = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line">func addElement(<span class="keyword">var</span> <span class="keyword">array</span>: <span class="keyword">Array</span>&lt;<span class="keyword">Int</span>&gt;)-&gt;Array&lt;<span class="keyword">Int</span>&gt; &#123;</span><br><span class="line">    <span class="keyword">array</span>.append(<span class="number">5</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">array</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span>(addElement(<span class="keyword">array</span>))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//func fun1(var array : Array&lt;Int&gt;) -&gt; Array&lt;Int&gt; &#123;</span></span><br><span class="line"><span class="comment">//    </span></span><br><span class="line"><span class="comment">//    array.append(5)</span></span><br><span class="line"><span class="comment">////    print(array)</span></span><br><span class="line"><span class="comment">//    return array</span></span><br><span class="line"><span class="comment">//&#125;</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//print(fun1(array))</span></span><br></pre></td></tr></table></figure>
+<h3 id="u6A21_u575712-_u7ED3_u6784_u4F53"><a href="#u6A21_u575712-_u7ED3_u6784_u4F53" class="headerlink" title="模块12.结构体"></a>模块12.结构体</h3><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="swift"></span><br><span class="line"><span class="comment">/// OC中不支持多继承,swift中支持多继承</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Father</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> name: <span class="type">String</span>?</span><br><span class="line">    <span class="keyword">var</span> age: <span class="type">Int</span>?</span><br><span class="line">    <span class="keyword">var</span> gender: <span class="type">Bool</span>?</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">init</span> (name: <span class="type">String</span>, age: <span class="type">Int</span>, gender: <span class="type">Bool</span>) &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">self</span>.name = name</span><br><span class="line">        <span class="keyword">self</span>.age = age</span><br><span class="line">        <span class="keyword">self</span>.gender = gender</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="func"><span class="keyword">func</span> <span class="title">earnMoney</span><span class="params">()</span></span> &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"<span class="subst">\(<span class="keyword">self</span>.name!)</span>正在赚钱"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span>: <span class="title">Father</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> mother: <span class="type">String</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">init</span>(name: <span class="type">String</span>, age: <span class="type">Int</span>, gender: <span class="type">Bool</span> , mother: <span class="type">String</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.mother = mother  <span class="comment">// 自己的属性一定要写在父类初始化的前面</span></span><br><span class="line">        <span class="keyword">super</span>.<span class="keyword">init</span>(name: name, age: age, gender: gender)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">override</span> <span class="func"><span class="keyword">func</span> <span class="title">earnMoney</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"<span class="subst">\(<span class="keyword">self</span>.name!)</span> 不会赚钱"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> child1 : <span class="type">Child</span> = <span class="type">Child</span>(name: <span class="string">"赫赫"</span>, age: <span class="number">3</span>, gender: <span class="literal">true</span>, mother: <span class="string">"强嫂"</span>)</span><br><span class="line">child1.earnMoney()</span></span><br></pre></td></tr></table></figure>
+<h3 id="u6A21_u575713-_u6269_u5C55"><a href="#u6A21_u575713-_u6269_u5C55" class="headerlink" title="模块13.扩展"></a>模块13.扩展</h3><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="swift"><span class="comment">// 结构体的扩展</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Student1</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="func"><span class="keyword">func</span> <span class="title">sayHello</span><span class="params">()</span></span> &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"我是<span class="subst">\(<span class="keyword">self</span>.name)</span>,大家好"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">stu1.sayHello()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 类的扩展</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Person1</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="func"><span class="keyword">func</span> <span class="title">sayHello</span><span class="params">()</span></span> &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"我是<span class="subst">\(<span class="keyword">self</span>.name!)</span>,大家好"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">person1.sayHello()</span></span><br></pre></td></tr></table></figure>
+<h3 id="u6A21_u575714-_u95ED_u5305"><a href="#u6A21_u575714-_u95ED_u5305" class="headerlink" title="模块14.闭包"></a>模块14.闭包</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 函数的嵌套</span></span><br><span class="line"><span class="comment">// 返回一个函数指针(函数指针的参数为空,返回值为void)</span></span><br><span class="line">func outerFun () -&gt; () -&gt;Void &#123;</span><br><span class="line">    </span><br><span class="line">    func innerFun () &#123;</span><br><span class="line">        <span class="keyword">print</span>(<span class="string">"我是内层函数"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> innerFun</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 函数指针的调用 --&gt;outerFun()相当于返回的innerFun</span></span><br><span class="line">outerFun()()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> names: [String] = [<span class="string">"zhangsan"</span>,<span class="string">"tingbudong"</span>,<span class="string">"dongge"</span>,<span class="string">"junge"</span>,<span class="string">"shuangjie"</span>]</span><br><span class="line"></span><br><span class="line">func sortBynames(s1: String, s2: String) -&gt; Bool &#123;</span><br><span class="line">    </span><br><span class="line"><span class="comment">//    if s1 &lt; s2 &#123;</span></span><br><span class="line"><span class="comment">//    return true</span></span><br><span class="line"><span class="comment">//    &#125;else&#123;</span></span><br><span class="line"><span class="comment">//    return false</span></span><br><span class="line"><span class="comment">//    &#125;</span></span><br><span class="line">    <span class="keyword">return</span> s1 &lt; s2</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> <span class="keyword">ret</span> = names.<span class="keyword">sort</span>(sortBynames)</span><br><span class="line"><span class="keyword">print</span>(<span class="keyword">ret</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span><br><span class="line">&#123;</span><br><span class="line">    (参数,参数,参数,...) -&gt; 返回值 in</span><br><span class="line">    语句1</span><br><span class="line">    语句2</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">ret</span> = names.<span class="keyword">sort</span>(</span><br><span class="line">    &#123;</span><br><span class="line">        (s1: String, s2: String) -&gt; Bool <span class="keyword">in</span></span><br><span class="line">        <span class="keyword">return</span> s1 &gt; s2</span><br><span class="line">    &#125;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 第一步, 我们可以写成一行</span></span><br><span class="line"><span class="keyword">ret</span> = names.<span class="keyword">sort</span>( &#123; (s1: String, s2: String) -&gt; Bool <span class="keyword">in</span> <span class="keyword">return</span> s1 &gt; s2 &#125; )</span><br><span class="line"><span class="comment">// 第二步, 根据上下文和函数原型, 推断 参数及返回值的类型</span></span><br><span class="line"><span class="keyword">ret</span> = names.<span class="keyword">sort</span>( &#123; s1, s2 <span class="keyword">in</span> <span class="keyword">return</span> s1 &gt; s2 &#125; )</span><br><span class="line"><span class="comment">// 第三步, 隐式返回单表达式闭包, 即如果你的闭包内只有一个表达式,而且这个表达式是return, 则return可以省略</span></span><br><span class="line"><span class="keyword">ret</span> = names.<span class="keyword">sort</span>( &#123; s1, s2 <span class="keyword">in</span> s1 &gt; s2 &#125; )</span><br><span class="line"><span class="comment">// 第四步, 参数名缩写 ($0表示第一个参数, $1表示第二个参数)</span></span><br><span class="line"><span class="keyword">ret</span> = names.<span class="keyword">sort</span>( &#123; <span class="label">$0</span> &gt; <span class="label">$1</span> &#125; )</span><br><span class="line"><span class="comment">// 第五步, 根据运算符推断, 二目运算符需要两个参数, 可省略$0 和 $1</span></span><br><span class="line"><span class="keyword">ret</span> = names.<span class="keyword">sort</span>( &lt; )</span><br><span class="line"><span class="comment">// 第六步, 默认排序规则</span></span><br><span class="line"><span class="keyword">ret</span> = names.<span class="keyword">sort</span>()</span><br><span class="line"><span class="keyword">print</span>(<span class="keyword">ret</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 尾随闭包 (当闭包最为最后一个参数的时候,可以将闭包写在括号外面)</span></span><br><span class="line"><span class="keyword">ret</span> = names.<span class="keyword">sort</span>()&#123;</span><br><span class="line">    (s1: String, s2: String) -&gt; Bool <span class="keyword">in</span></span><br><span class="line">    <span class="keyword">return</span> s1 &gt; s2</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 逃逸闭包 (当闭包是最后一个调用的时候,就是逃逸闭包)</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Switf/" rel="tag">#Switf</a>
+          
+            <a href="/tags/编程/" rel="tag">#编程</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/01/27/图片下载到本地相册/" rel="next" title="图片下载到本地相册">
+                <i class="fa fa-chevron-left"></i> 图片下载到本地相册
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/01/28/时隔境迁-情怀未改/" rel="prev" title="时隔境迁,情怀未改">
+                时隔境迁,情怀未改 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/01/27/Swift-2/"
+           data-title="Swift_2" data-url="http://yoursite.com/2016/01/27/Swift-2/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://7xqeui.com1.z0.glb.clouddn.com/%E5%A4%B4%E5%83%8F.jpg"
+               alt="harry sun" />
+          <p class="site-author-name" itemprop="name">harry sun</p>
+          <p class="site-description motion-element" itemprop="description">实现梦想没那么伟大，80%的人只是输给了半途而废。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">21</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">21</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/272095249" target="_blank">
+                  
+                    <i class="fa fa-github"></i> github
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/5709421118/home?wvr=5&sudaref=www.baidu.com" target="_blank">
+                  
+                    <i class="fa fa-weibo"></i> weibo
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/sun-hao-37-71" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> zhihu
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+            <p class="site-author-name">Links</p>
+            
+              <span class="links-of-author-item">
+                <a href="http://dominic-lian.space" target="_blank">可爱刚</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://blog.csdn.net/floatingdreamsh" target="_blank">Floating_SH</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://shanshan.likesyou.org" target="_blank">Hanson's Blog</a>
+              </span>
+            
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#u6A21_u575710-_u7ED3_u6784_u4F53"><span class="nav-number">1.</span> <span class="nav-text">模块10.结构体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u6A21_u575711-_u7C7B"><span class="nav-number">2.</span> <span class="nav-text">模块11.类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u6A21_u575712-_u7ED3_u6784_u4F53"><span class="nav-number">3.</span> <span class="nav-text">模块12.结构体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u6A21_u575713-_u6269_u5C55"><span class="nav-number">4.</span> <span class="nav-text">模块13.扩展</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u6A21_u575714-_u95ED_u5305"><span class="nav-number">5.</span> <span class="nav-text">模块14.闭包</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">harry sun</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  
+
+
+  
+
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"harry-sun"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+
+  
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/MathJax.js"></script>
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/config/TeX-AMS-MML_HTMLorMML.js"></script>
+  
+
+
+  
+  
+
+
+</body>
+</html>

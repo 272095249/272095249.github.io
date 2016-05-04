@@ -1,0 +1,840 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="编程,视图控制器," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="视图控制器在iOS编程中占据非常重要的位置，因此我们一定要掌握。它可以创建和管理视图、管理视图上显示的数据、设备方向变化，调整视图大小以适应屏幕、负责视图和模型之间的数据及请示的传递。
+1.视图控制器1234567891011121314151617181920212223242526272829303132333435363738//初始化方法-(instancetype)initWithNib">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UI_视图控制器及其生命周期学习笔记">
+<meta property="og:url" content="http://yoursite.com/2016/01/29/UI-视图控制器及其生命周期学习笔记/index.html">
+<meta property="og:site_name" content="harry sun">
+<meta property="og:description" content="视图控制器在iOS编程中占据非常重要的位置，因此我们一定要掌握。它可以创建和管理视图、管理视图上显示的数据、设备方向变化，调整视图大小以适应屏幕、负责视图和模型之间的数据及请示的传递。
+1.视图控制器1234567891011121314151617181920212223242526272829303132333435363738//初始化方法-(instancetype)initWithNib">
+<meta property="og:image" content="http://7xqeui.com1.z0.glb.clouddn.com/%E8%A7%86%E5%9B%BE1.png">
+<meta property="og:image" content="http://7xqeui.com1.z0.glb.clouddn.com/%E8%A7%86%E5%9B%BE2.png">
+<meta property="og:image" content="http://7xqeui.com1.z0.glb.clouddn.com/%E8%A7%86%E5%9B%BE3.png">
+<meta property="og:image" content="http://7xqeui.com1.z0.glb.clouddn.com/%E8%A7%86%E5%9B%BE4.png">
+<meta property="og:image" content="http://7xqeui.com1.z0.glb.clouddn.com/%E8%A7%86%E5%9B%BE5.png">
+<meta property="og:image" content="http://7xqeui.com1.z0.glb.clouddn.com/LTView.png">
+<meta property="og:updated_time" content="2016-03-03T09:19:20.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="UI_视图控制器及其生命周期学习笔记">
+<meta name="twitter:description" content="视图控制器在iOS编程中占据非常重要的位置，因此我们一定要掌握。它可以创建和管理视图、管理视图上显示的数据、设备方向变化，调整视图大小以适应屏幕、负责视图和模型之间的数据及请示的传递。
+1.视图控制器1234567891011121314151617181920212223242526272829303132333435363738//初始化方法-(instancetype)initWithNib">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> UI_视图控制器及其生命周期学习笔记 | harry sun </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?827ec9be4972109f01fc68012a9c454b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">harry sun</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                UI_视图控制器及其生命周期学习笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-01-29T21:08:55+08:00" content="2016-01-29">
+              2016-01-29
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/UI学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">UI学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/01/29/UI-视图控制器及其生命周期学习笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/29/UI-视图控制器及其生命周期学习笔记/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>视图控制器在iOS编程中占据非常重要的位置，因此我们一定要掌握。它可以创建和管理视图、管理视图上显示的数据、设备方向变化，调整视图大小以适应屏幕、负责视图和模型之间的数据及请示的传递。</p>
+<h4 id="1-_u89C6_u56FE_u63A7_u5236_u5668"><a href="#1-_u89C6_u56FE_u63A7_u5236_u5668" class="headerlink" title="1.视图控制器"></a>1.视图控制器</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化方法</span></span><br><span class="line">-(instancetype)initWithNibName:(<span class="built_in">NSString</span> *)nibNameOrNil bundle:(<span class="built_in">NSBundle</span> *)nibBundleOrNil&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">self</span> = [<span class="keyword">super</span> initWithNibName:nibNameOrNil bundle:nibBundleOrNil])&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//    NSLog(@"0");//视图控制器的生命周期从这里开始</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//加载视图</span></span><br><span class="line"><span class="preprocessor">#warning 注意:重写loadView一定要指定根视图,否则会进入死循环(在loadView和viewDidLoad之间跳)</span></span><br><span class="line"><span class="comment">//- (void)loadView&#123;&#125;</span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>) changeToCustomPage&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//视图已经加载</span></span><br><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//视图将要显示</span></span><br><span class="line">- (<span class="keyword">void</span>)viewWillAppear:(<span class="built_in">BOOL</span>)animated&#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">//    NSLog(@"3");</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//视图已经显示</span></span><br><span class="line">- (<span class="keyword">void</span>)viewDidAppear:(<span class="built_in">BOOL</span>)animated&#123;</span><br><span class="line"><span class="comment">//    NSLog(@"4");</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//视图将要消失</span></span><br><span class="line">- (<span class="keyword">void</span>)viewWillDisappear:(<span class="built_in">BOOL</span>)animated&#123;</span><br><span class="line"><span class="comment">//    NSLog(@"5");</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//视图已经消失</span></span><br><span class="line">- (<span class="keyword">void</span>)viewDidDisappear:(<span class="built_in">BOOL</span>)animated&#123;</span><br><span class="line"><span class="comment">//    NSLog(@"6");//试图控制器在被移除之后生命周期结束</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2-_u952E_u76D8_u56DE_u6536_u95EE_u9898_3A"><a href="#2-_u952E_u76D8_u56DE_u6536_u95EE_u9898_3A" class="headerlink" title="2.键盘回收问题:"></a>2.键盘回收问题:</h4><p>键盘回收封装在类的内部:外界不需要重复的设置代理，但是可定制性比较弱，如果不想键盘回收，试图跳到下一个输入框就无法实现</p>
+<p>键盘回收封装在类的外部:外界的可定制性比较强，但是需要重复的书写代码</p>
+<p>容器视图控制器</p>
+<h5 id="u5148_u5BFC_u5165_u5B50_u89C6_u56FE_u63A7_u5236_u5668_u2014_26gt_3B_u5728_u7236_u89C6_u56FE_u63A7_u5236_u5668_u4E2D_u58F0_u660E_u5B50_u89C6_u56FE_u63A7_u5236_u5668_u7684_u5C5E_u6027_u2014_26gt_3B_u521B_u5EFA_u63A7_u5236_u5668_u2014_26gt_3B_u7ED9_u5F53_u524D_u63A7_u5236_u5668_u6DFB_u52A0_u5B50_u63A7_u5236_u5668_u2014_26gt_3B_u9ED8_u8BA4_u663E_u793A_u7B2C_u4E00_u4E2A_u9875_u9762_u7684_u63A7_u5236_u5668"><a href="#u5148_u5BFC_u5165_u5B50_u89C6_u56FE_u63A7_u5236_u5668_u2014_26gt_3B_u5728_u7236_u89C6_u56FE_u63A7_u5236_u5668_u4E2D_u58F0_u660E_u5B50_u89C6_u56FE_u63A7_u5236_u5668_u7684_u5C5E_u6027_u2014_26gt_3B_u521B_u5EFA_u63A7_u5236_u5668_u2014_26gt_3B_u7ED9_u5F53_u524D_u63A7_u5236_u5668_u6DFB_u52A0_u5B50_u63A7_u5236_u5668_u2014_26gt_3B_u9ED8_u8BA4_u663E_u793A_u7B2C_u4E00_u4E2A_u9875_u9762_u7684_u63A7_u5236_u5668" class="headerlink" title="先导入子视图控制器—&gt;在父视图控制器中声明子视图控制器的属性—&gt;创建控制器—&gt;给当前控制器添加子控制器—&gt;默认显示第一个页面的控制器"></a>先导入子视图控制器—&gt;在父视图控制器中声明子视图控制器的属性—&gt;创建控制器—&gt;给当前控制器添加子控制器—&gt;默认显示第一个页面的控制器</h5><p><img src="http://7xqeui.com1.z0.glb.clouddn.com/%E8%A7%86%E5%9B%BE1.png" alt="image"><br><img src="http://7xqeui.com1.z0.glb.clouddn.com/%E8%A7%86%E5%9B%BE2.png" alt="image"></p>
+<p>在其中子视图控制器中添加button,父控制器中写button的实现方法<br>子视图控制器的button:<br><img src="http://7xqeui.com1.z0.glb.clouddn.com/%E8%A7%86%E5%9B%BE3.png" alt="image"><br><img src="http://7xqeui.com1.z0.glb.clouddn.com/%E8%A7%86%E5%9B%BE4.png" alt="image"></p>
+<p>父视图控制器中对于子视图控制器button的实现方法:<br><img src="http://7xqeui.com1.z0.glb.clouddn.com/%E8%A7%86%E5%9B%BE5.png" alt="image"></p>
+<h4 id="3-_u7B80_u5355_u5C01_u88C5"><a href="#3-_u7B80_u5355_u5C01_u88C5" class="headerlink" title="3.简单封装"></a>3.简单封装</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">将一个label和一个textfield封装到一个view中,这样直接使用这个view就可以输出这个封装的类型(在<span class="variable">.h</span>中还需要声明这两个属性)</span><br><span class="line">LTView<span class="variable">.h</span>中</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>,<span class="keyword">nonatomic</span>) <span class="built_in">UILabel</span> *label;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>,<span class="keyword">nonatomic</span>) <span class="built_in">UITextField</span> *textField;</span><br><span class="line"></span><br><span class="line">LTView<span class="variable">.m</span>中</span><br><span class="line"><span class="comment">//重写初始化方法</span></span><br><span class="line">-(instancetype)initWithFrame:(<span class="built_in">CGRect</span>)frame</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//super:是编译器指令,指向父类发送消息</span></span><br><span class="line">    <span class="keyword">self</span> = [<span class="keyword">super</span> initWithFrame:frame];</span><br><span class="line">    <span class="comment">//1.父类完成共有的实例变量的初始化,将结果赋给子类</span></span><br><span class="line">    <span class="comment">//2.如果父类初始化操作失败,子类没有初始化的必要,直接返回即可</span></span><br><span class="line">    <span class="comment">//给父类发送初始化消息(将父类的初始化继承过来)</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">self</span>)&#123;   <span class="comment">//判断父类是否初始化成功</span></span><br><span class="line">        <span class="comment">//在初始化操作当中,尽量不要操作视图,只做数据的处理</span></span><br><span class="line">        [<span class="keyword">self</span> drawView];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)drawView&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">self</span><span class="variable">.label</span> = [[<span class="built_in">UILabel</span> alloc]initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">100</span>, <span class="number">50</span>)];</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.label</span><span class="variable">.text</span> = <span class="string">@"用户名"</span>;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.label</span><span class="variable">.backgroundColor</span> = [<span class="built_in">UIColor</span> redColor];</span><br><span class="line">    [<span class="keyword">self</span> addSubview:<span class="keyword">self</span><span class="variable">.label</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">self</span><span class="variable">.textField</span> = [[<span class="built_in">UITextField</span> alloc]initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">135</span>, <span class="number">0</span>, <span class="number">200</span>, <span class="number">50</span>)];</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.textField</span><span class="variable">.placeholder</span> = <span class="string">@"请输入用户名"</span>;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.textField</span><span class="variable">.backgroundColor</span> = [<span class="built_in">UIColor</span> brownColor];</span><br><span class="line">    [<span class="keyword">self</span> addSubview:<span class="keyword">self</span><span class="variable">.textField</span>];</span><br><span class="line"></span><br><span class="line">下面两个是创建view,并且修改其中的属性:</span><br><span class="line">    LTView *ltview1 = [[LTView alloc]initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">20</span>, <span class="number">80</span>, <span class="number">335</span>, <span class="number">50</span>)];</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.window</span> addSubview:ltview1];</span><br><span class="line">    LTView *ltview2 = [[LTView alloc]initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">20</span>, <span class="number">150</span>, <span class="number">335</span>, <span class="number">50</span>)];</span><br><span class="line">    ltview2<span class="variable">.label</span><span class="variable">.text</span> = <span class="string">@"密码"</span>;</span><br><span class="line">    ltview2<span class="variable">.textField</span><span class="variable">.secureTextEntry</span> = <span class="literal">YES</span>;</span><br><span class="line">    ltview2<span class="variable">.textField</span><span class="variable">.placeholder</span> =<span class="string">@"请输入密码"</span>;</span><br><span class="line">    ltview2<span class="variable">.textField</span><span class="variable">.backgroundColor</span> = [<span class="built_in">UIColor</span> cyanColor];</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.window</span> addSubview:ltview2];</span><br></pre></td></tr></table></figure>
+<p>将两个view添加到window上如图所示<br><img src="http://7xqeui.com1.z0.glb.clouddn.com/LTView.png" alt="image"></p>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/编程/" rel="tag">#编程</a>
+          
+            <a href="/tags/视图控制器/" rel="tag">#视图控制器</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/01/29/命运-在磨难中挺直腰杆/" rel="next" title="命运,在磨难中挺直腰杆">
+                <i class="fa fa-chevron-left"></i> 命运,在磨难中挺直腰杆
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/01/29/奋力奔跑-无暇顾及途中的风花雪月/" rel="prev" title="奋力奔跑,无暇顾及途中的风花雪月">
+                奋力奔跑,无暇顾及途中的风花雪月 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/01/29/UI-视图控制器及其生命周期学习笔记/"
+           data-title="UI_视图控制器及其生命周期学习笔记" data-url="http://yoursite.com/2016/01/29/UI-视图控制器及其生命周期学习笔记/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://7xqeui.com1.z0.glb.clouddn.com/%E5%A4%B4%E5%83%8F.jpg"
+               alt="harry sun" />
+          <p class="site-author-name" itemprop="name">harry sun</p>
+          <p class="site-description motion-element" itemprop="description">实现梦想没那么伟大，80%的人只是输给了半途而废。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">21</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">21</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/272095249" target="_blank">
+                  
+                    <i class="fa fa-github"></i> github
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/5709421118/home?wvr=5&sudaref=www.baidu.com" target="_blank">
+                  
+                    <i class="fa fa-weibo"></i> weibo
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/sun-hao-37-71" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> zhihu
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+            <p class="site-author-name">Links</p>
+            
+              <span class="links-of-author-item">
+                <a href="http://dominic-lian.space" target="_blank">可爱刚</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://blog.csdn.net/floatingdreamsh" target="_blank">Floating_SH</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://shanshan.likesyou.org" target="_blank">Hanson's Blog</a>
+              </span>
+            
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-_u89C6_u56FE_u63A7_u5236_u5668"><span class="nav-number">1.</span> <span class="nav-text">1.视图控制器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-_u952E_u76D8_u56DE_u6536_u95EE_u9898_3A"><span class="nav-number">2.</span> <span class="nav-text">2.键盘回收问题:</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#u5148_u5BFC_u5165_u5B50_u89C6_u56FE_u63A7_u5236_u5668_u2014_26gt_3B_u5728_u7236_u89C6_u56FE_u63A7_u5236_u5668_u4E2D_u58F0_u660E_u5B50_u89C6_u56FE_u63A7_u5236_u5668_u7684_u5C5E_u6027_u2014_26gt_3B_u521B_u5EFA_u63A7_u5236_u5668_u2014_26gt_3B_u7ED9_u5F53_u524D_u63A7_u5236_u5668_u6DFB_u52A0_u5B50_u63A7_u5236_u5668_u2014_26gt_3B_u9ED8_u8BA4_u663E_u793A_u7B2C_u4E00_u4E2A_u9875_u9762_u7684_u63A7_u5236_u5668"><span class="nav-number">2.1.</span> <span class="nav-text">先导入子视图控制器—>在父视图控制器中声明子视图控制器的属性—>创建控制器—>给当前控制器添加子控制器—>默认显示第一个页面的控制器</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-_u7B80_u5355_u5C01_u88C5"><span class="nav-number">3.</span> <span class="nav-text">3.简单封装</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">harry sun</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  
+
+
+  
+
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"harry-sun"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+
+  
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/MathJax.js"></script>
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/config/TeX-AMS-MML_HTMLorMML.js"></script>
+  
+
+
+  
+  
+
+
+</body>
+</html>
